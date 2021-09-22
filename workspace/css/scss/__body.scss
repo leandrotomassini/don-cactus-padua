@@ -1,0 +1,42 @@
+.body {
+  // Box model
+  padding: 0;
+  margin: 0;
+
+  // Visual
+  background-color: lightcoral;
+}
+
+.container{
+    // Box model
+    display: grid;
+    grid-template-rows: 4rem 11rem auto 6rem 6rem;
+}
+
+.header {
+  // Visual
+  background-color: lightskyblue;
+}
+
+.slider-principal {
+  // Visual
+  background-color: lightseagreen;
+}
+
+.contenido-principal {
+  // Box model
+  min-height: 40rem;
+
+  // Visual
+  background-color: mediumslateblue;
+}
+
+.registrar-correo-inicio {
+  // Visual
+  background-color: mediumseagreen;
+}
+
+.footer {
+  // Visual
+  background-color: mediumorchid;
+}

@@ -1,0 +1,33 @@
+.body {
+  padding: 0;
+  margin: 0;
+  background-color: lightcoral;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 4rem 11rem auto 6rem 6rem;
+}
+
+.header {
+  background-color: lightskyblue;
+}
+
+.slider-principal {
+  background-color: lightseagreen;
+}
+
+.contenido-principal {
+  min-height: 40rem;
+  background-color: mediumslateblue;
+}
+
+.registrar-correo-inicio {
+  background-color: mediumseagreen;
+}
+
+.footer {
+  background-color: mediumorchid;
+}
+
+/*# sourceMappingURL=style.css.map */
