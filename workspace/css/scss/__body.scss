@@ -1,21 +1,80 @@
+$verde-principal: green;
+
+@use "__fonts.scss";
+
 .body {
   // Box model
   padding: 0;
   margin: 0;
 
+  // Texto
+  font-family: "Raleway-Bold";
+
   // Visual
   background-color: lightcoral;
 }
 
-.container{
-    // Box model
-    display: grid;
-    grid-template-rows: 4rem 11rem auto 6rem 6rem;
+.container {
+  // Box model
+  display: grid;
+  grid-template-rows: 4rem 11rem auto 6rem 6rem;
 }
 
 .header {
+  // Box model
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 3fr 6fr 2fr 2fr;
+  place-items: center;
+
+  // Texto
+  text-transform: uppercase;
+
   // Visual
-  background-color: lightskyblue;
+  background-color: #c9c9c9;
+  color: white;
+
+  .boton-menu {
+    // Box model
+    width: 100%;
+    height: 100%;
+    padding-top: 1rem;
+
+    //   Visual
+    background-color: $verde-principal;
+
+    label {
+      // Box model
+      display: block;
+
+      // Texto
+      text-align: center;
+
+      img {
+        // Box model
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+    }
+  }
+
+  .logo {
+    // Box model
+    padding-left: 20px;
+
+    // Text
+    font-family: "Raleway-Bold";
+    font-size: 0.9rem;
+
+    // Visual
+    color: black;
+  }
+
+  .buscador {
+  }
+  .carrito {
+  }
 }
 
 .slider-principal {
