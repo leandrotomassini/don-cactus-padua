@@ -14,12 +14,12 @@
   padding: 0;
   margin: 0;
   font-family: "Raleway-Bold";
-  background-color: lightcoral;
+  background-color: #666;
 }
 
 .container {
   display: grid;
-  grid-template-rows: 4rem 11rem auto 6rem 6rem;
+  grid-template-rows: 4rem 18rem auto 6rem 6rem;
 }
 
 .header {
@@ -34,11 +34,11 @@
 .header .boton-menu {
   width: 100%;
   height: 100%;
-  padding-top: 1rem;
   background-color: green;
 }
 .header .boton-menu label {
   display: block;
+  margin-top: 0.5rem;
   text-align: center;
 }
 .header .boton-menu label img {
@@ -53,7 +53,7 @@
   color: black;
 }
 .slider-principal {
-  background-color: lightseagreen;
+  padding-top: 1rem;
 }
 
 .contenido-principal {

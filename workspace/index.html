@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Don Cactus Padua</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- Slideshow principal -->
+    <link rel="stylesheet" href="assets/slider-principal/css/style.css">
+    <!-- Fin slideshow principal -->
 </head>
-
 
 <body class="body">
 
@@ -17,7 +19,7 @@
         <header class="header">
             <div class="boton-menu">
                 <label>
-                    <img src="css/icons/Menu-hamburgesa.svg">  
+                    <img src="css/icons/Menu-hamburgesa.svg">
                     menú
                 </label>
             </div>
@@ -28,21 +30,41 @@
 
             <div class="buscador">
                 <div>
-                    <img src="css/icons/Lupa.svg"> 
+                    <img src="css/icons/Lupa.svg">
                 </div>
             </div>
 
             <div class="carrito">
                 <div>
-                    <img src="css/icons/Bolsa.svg"> 
+                    <img src="css/icons/Bolsa.svg">
                 </div>
             </div>
 
         </header>
 
-
         <section class="slider-principal">
-            <p>Slider principal</p>
+
+            <!-- Slider principal -->
+            <div class="container-slider">
+                <div class="slider" id="slider">
+                    <div class="slider__section">
+                        <img src="assets/slider-principal/img/1.jpg" alt="" class="slider__img">
+                    </div>
+                    <div class="slider__section">
+                        <img src="assets/slider-principal/img/2.png" alt="" class="slider__img">
+                    </div>
+                    <div class="slider__section">
+                        <img src="assets/slider-principal/img/3.jpg" alt="" class="slider__img">
+                    </div>
+                    <div class="slider__section">
+                        <img src="assets/slider-principal/img/4.jpg" alt="" class="slider__img">
+                    </div>
+                </div>
+                <div class="slider__btn slider__btn--right" id="btn-right">&#62</div>
+                <div class="slider__btn slider__btn--left" id="btn-left">&#60</div>
+            </div>
+            <!-- Fin slider principal -->
+
         </section>
 
         <section class="contenido-principal">
@@ -59,6 +81,10 @@
 
     </div>
 
+
+    <!-- Slideshow principal -->
+    <script src="/assets/slider-principal/js/slider.js"></script>
+    <!-- Fin slideshow principal -->
 </body>
 
 </html>

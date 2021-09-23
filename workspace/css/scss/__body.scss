@@ -11,13 +11,13 @@ $verde-principal: green;
   font-family: "Raleway-Bold";
 
   // Visual
-  background-color: lightcoral;
+  background-color: #666;
 }
 
 .container {
   // Box model
   display: grid;
-  grid-template-rows: 4rem 11rem auto 6rem 6rem;
+  grid-template-rows: 4rem 18rem auto 6rem 6rem;
 }
 
 .header {
@@ -38,7 +38,6 @@ $verde-principal: green;
     // Box model
     width: 100%;
     height: 100%;
-    padding-top: 1rem;
 
     //   Visual
     background-color: $verde-principal;
@@ -46,6 +45,7 @@ $verde-principal: green;
     label {
       // Box model
       display: block;
+      margin-top: .5rem;
 
       // Texto
       text-align: center;
@@ -78,8 +78,8 @@ $verde-principal: green;
 }
 
 .slider-principal {
-  // Visual
-  background-color: lightseagreen;
+  // Box model
+  padding-top: 1rem;
 }
 
 .contenido-principal {
