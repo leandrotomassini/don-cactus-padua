@@ -1,90 +1,551 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Don Cactus Padua</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <!-- Slideshow principal -->
-    <link rel="stylesheet" href="assets/slider-principal/css/style.css">
-    <!-- Fin slideshow principal -->
+    <title>DON CACTUS PADUA | GrowShop</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+
+    <!-- Carga del CSS de "Bootstrap" -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Carga del CSS de "Font Awesome" -->
+    <link rel="stylesheet" href="css/all.css">
+
+    <!-- Carga del CSS de "Swiper" -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <!-- Carga del CSS de "VenoBox" -->
+    <link rel="stylesheet" href="css/venobox.css">
+
+    <!-- Carga del CSS de "Jarallax" -->
+    <link rel="stylesheet" href="css/jarallax.css">
+
+    <!-- Carga del CSS de "Pickadate.js" -->
+    <link rel="stylesheet" href="js/pickadate.js/themes/default.css">
+
+
+    <!-- Carga del CSS de "Date Picker" -->
+    <link rel="stylesheet" href="js/pickadate.js/themes/default.date.css">
+
+
+    <!-- Carga del CSS de "Time Picker" -->
+    <link rel="stylesheet" href="js/pickadate.js/themes/default.time.css">
+
+<!-- Carga de Fuentes de google-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+
+    <!-- Carga del CSS personalizado -->
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
-<body class="body">
+<body>
+    <!-- Seccion #barra-contacto -->
+    <section id="barra-contacto" class="bg-primary text-white py-3 py-lg-1 text-center">
+        <div class="container">
+            <div class="row justify-content-sm-between align-items-sm-center">
+                <div class="col-12 col-sm-auto">
+                    <i class="fas fa-map-marker-alt mr-1"></i><span>Limay 21. San Antonio de Padua</span>
+                </div>
 
-    <div class="container">
-
-        <header class="header">
-            <div class="boton-menu">
-                <label>
-                    <img src="css/icons/Menu-hamburgesa.svg">
-                    menú
-                </label>
+                <div class="col-12 col-sm-auto">
+                    <ul class="redes-sociales list-unstyled d-inline-flex mb-0">
+                        <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    </ul>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="logo">
-                <label>don cactus padua</label>
+    <!-- Sección #detalles-encabezado -->
+    <section id="detalles-encabezado" class="d-none d-md-block py-3">
+        <div class="container">
+            <div class="row justify-content-md-between align-items-md-center">
+                <div class="col-auto">
+                    <a href="#" class="logo">
+                        <img src="images/logo.svg" alt="Logo del sitio" width="200" class="img-fluid">
+                    </a>
+                </div>
+
+                <div class="col-auto ml-md-auto">
+                    <i class="fas fa-phone fa-flip-horizontal fa-2x align-middle text-primary"></i>
+                    <span class="font-weight-bold h5 ml-2"> +54-11-5804-7798</span>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-envelope fa-2x align-middle text-primary"></i>
+                    <span class="font-weight-bold h5 ml-2">info@doncactuspadua.com</span>
+                </div>
             </div>
+        </div>
 
-            <div class="buscador">
-                <div>
-                    <img src="css/icons/Lupa.svg">
+    </section>
+
+    <!-- Sección #menu-navegacion -->
+
+    <nav id="menu-navegacion" class="navbar navbar-dark bg-secondary navbar-expand-md">
+        <div class="container">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu-principal"
+                aria-expanded="false" aria-label="Botón Menú principal">
+                <span class="boton-menu"></span>
+            </button>
+            <a href="#" class="btn btn-primary order-md-1">Reservar una cita</a>
+
+            <div class="collapse navbar-collapse" id="menu-principal">
+                <ul class="navbar-nav mt-3 mt-md-0">
+                    <li class="nav-item mb-1 mb-md-0 mr-md-2"><a href="#barra-contacto"
+                            class="nav-link active">Inicio</a></li>
+                    <li class="nav-item mb-1 mb-md-0 mr-md-2"><a href="#bienvenidos" class="nav-link">Nosotros</a></li>
+                    <li class="nav-item mb-1 mb-md-0 mr-md-2"><a href="#premios" class="nav-link">Premios</a></li>
+                    <li class="nav-item mb-1 mb-md-0 mr-md-2"><a href="#nuestra-app" class="nav-link">Nuestra APP</a>
+                    </li>
+                    <li class="nav-item mb-1 mb-md-0 mr-md-0"><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección #animacion -->
+    <section id="animacion" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide d-flex justify-content-center align-items-center"
+                style="background-image:url('images/fondo-slide-1.jpeg')">
+
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-9 col-sm-11">
+                            <h2 class="display-4 font-weight-bold">
+                                Cultivo responsable.
+                            </h2>
+                            <a href="#" class="btn btn-primary">Reservar una cita</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="swiper-slide d-flex justify-content-center align-items-center"
+                style="background-image:url('images/fondo-slide-2.jpeg')">
+
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-9 col-sm-11">
+                            <h2 class="display-4 font-weight-bold">
+                                Reservar una cita ahora es muy facil.
+                            </h2>
+                            <a href="#" class="btn btn-primary">Reservar una cita</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="carrito">
-                <div>
-                    <img src="css/icons/Bolsa.svg">
+            <div class="swiper-slide d-flex justify-content-center align-items-center"
+                style="background-image:url('images/fondo-slide-3.jpeg')">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-9 col-sm-11">
+                            <h2 class="display-4 font-weight-bold">
+                                ¡Disponibles las 24 horas y los 7 días de la!.
+                            </h2>
+                            <a href="#" class="btn btn-primary">Reservar una cita</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+        </div>
+
+        <!-- Botones de navegación -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- Botones de paginación -->
+        <div class="swiper-pagination"></div>
+    </section>
+
+    <!-- Sección #bienvenidos -->
+    <section id="bienvenidos" class="py-5">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 text-center">
+
+                    <div class="contenedor-video d-inline-block position-relative text-truncate">
+
+                        <img src="images/fondo-video.jpg" alt="Imagen del video promocional del Sitio"
+                            class="img-fluid">
+                        <a href="http://www.youtu.be/XcelnBciLUM" class="venobox-video" data-vbtype="video"
+                            title="Bienvenidos a Don Cactus Padua."><i class="fas fa-play"></i></a>
+
+                    </div>
+
+                </div>
+                <div class="col-12 col-lg-6  pt-4 pt-lg-0 text-center text-lg-left">
+                    <h2 class="display-4 font-weight-bold text-secondary  mt-lg-n2">
+                        BIENVENIDOS A  <span class="text-primary">LA CASA DEL SOL</span>
+                    </h2>
+                    <h6 class="text-black-50">SOMOS PARTE DE TÍ</h6>
+                    <p>
+                        Proporcionamos atención médica de la más alta calidad, tratamiento individualizado por los
+                        principales expertos del país y en el menor tiempo posible. Te invitamos a conocernos un poco
+                        más.
+                    </p>
+                    <a href="#" class="btn btn-primary mt-3">Leér más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección #te-ayudamos -->
+    <section id="te-ayudamos" class="bg-secondary text-white text-center py-5 jarallax" data-jarallax data-speed="0.7">
+        <picture class="jarallax-img">
+            <source media="(min-width:1200px)" srcset="images/fondo-te-ayudamos-xl.jpg">
+            <source media="(min-width:768px)" srcset="images/fondo-te-ayudamos-md.jpg">
+            <img srcset="images/fondo-te-ayudamos.jpg" alt="Fondo como podemos ayudarte" class="w-100">
+        </picture>
+
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-12">
+                    <h2 class="display-4 font-weight-bold">¿CÓMO PODEMOS AYUDARTE?</h2>
+                    <p>Ofrecemos una amplia gama de procedimientos para ayudarlo a obtener la sonrisa perfecta.</p>
+                    <a href="#" class="btn btn-primary">Reservar una cita</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Seccion #premios -->
+
+    <section id="premios" class="py-5 text-center">
+
+        <div class="container py-5">
+            <h2 class="display-4 font-weight-bold text-secondary">NUESTRA CLÍNICA EN NÚMEROS</h2>
+            <h6 class="text-black-50">TENEMOS ALGUNOS NÚMEROS QUE MOSTRARTE.</h6>
+
+            <div class="row">
+                <div class="col-6 col-md-3 py-4">
+                    <i class="far fa-calendar-alt text-primary display-4 mb-2"></i>
+                    <div class="font-weight-bold text-secondary h2">
+                        <span class="counter" data-counterup-beginat="0" data-counterup-time="500">12</span>
+                    </div>
+                    <h6>Años de experiencia</h6>
+                    <div class="contador-linea"></div>
+
+                </div>
+                <div class="col-6 col-md-3 py-4">
+                    <i class="fab fa-angellist text-primary display-4 mb-2"></i>
+                    <div class="font-weight-bold text-secondary h2">
+                        <span class="counter" data-counterup-beginat="0" data-counterup-time="2000">156</span>
+                    </div>
+                    <h6>Clientes satisfechos</h6>
+                    <div class="contador-linea"></div>
+                </div>
+                <div class="col-6 col-md-3 py-4">
+                    <i class="fas fa-award text-primary display-4 mb-2"></i>
+                    <div class="font-weight-bold text-secondary h2">
+                        <span class="counter" data-counterup-beginat="0" data-counterup-time="1500">120</span>
+                    </div>
+                    <h6>Premios obtenidos</h6>
+                    <div class="contador-linea"></div>
+                </div>
+                <div class="col-6 col-md-3 py-4">
+                    <i class="fas fa-thumbs-up text-primary display-4 mb-2"></i>
+                    <div class="font-weight-bold text-secondary h2">
+                        <span class="counter" data-counterup-beginat="0"
+                            data-counterup-time="2000">100</span><span>%</span>
+                    </div>
+                    <h6>Años de experiencia</h6>
+                    <div class="contador-linea"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección #nuestra-app -->
+    <section id="nuestra-app" class="bg-secondary py-5 text-white text-center text-md-left jarallax" data-jarallax
+        data-speed="0.6">
+        <picture class="jarallax-img">
+            <source media="(min-width:1200px)" srcset="images/fondo-descargar-app-xl.jpg">
+            <source media="(min-width:768px)" srcset="images/fondo-descargar-app-md.jpg">
+            <img srcset="images/fondo-descargar-app.jpg" alt="Fondo Nuestra App" class="w-100">
+        </picture>
+
+        <div class="container">
+            <div class="row justify-content-md-end">
+                <div class="col-12 col-md-6">
+                    <h2 class="h1 font-weight-bold">DESCARGA NUESTRA APP Y ACCEDE A DESCUENTOS EXCLUSIVOS!</h2>
+                    <h6 class="text-white-50">SOMOS PARTE DE TÍ</h6>
+                    <p>Hemos creado una aplicación exclusiva para nuestros clientes. Desde donde podrás acceder a
+                        sorteos y descuentos especiales.</p>
+                    <a href="#" class="btn btn-primary mt-3">Conócenos más</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección #contacto -->
+    <section id="contacto">
+        <header class="py-5 bg-primary text-white text-center position-relative">
+            <h2 class="display-4 font-weight-bold">CONTÁCTANOS</h2>
+            <h6 class="text-white-50">ESTAMOS LISTOS PARA ATENDERTE</h6>
+            <div class="detalle-rectangulo"></div>
         </header>
 
-        <section class="slider-principal">
+        <div class="container">
+            <div class="row py-5">
 
-            <!-- Slider principal -->
-            <div class="container-slider">
-                <div class="slider" id="slider">
-                    <div class="slider__section">
-                        <img src="assets/slider-principal/img/1.jpg" alt="" class="slider__img">
-                    </div>
-                    <div class="slider__section">
-                        <img src="assets/slider-principal/img/2.png" alt="" class="slider__img">
-                    </div>
-                    <div class="slider__section">
-                        <img src="assets/slider-principal/img/3.jpg" alt="" class="slider__img">
-                    </div>
-                    <div class="slider__section">
-                        <img src="assets/slider-principal/img/4.jpg" alt="" class="slider__img">
-                    </div>
+                <div class="col-12 col-lg-6">
+                    <h2 class="font-weight-bold text-center mb-2">Detalles de contacto:</h2>
+
+                    <ul class="list-unstyled">
+
+                        <li class="d-flex border-bottom py-4">
+                            <i class="fas fa-globe fa-3x text-primary mr-4 fa-fw"></i>
+                            <div>
+                                <h5 class="font-weight-bold">Dirección:</h5>
+                                <p class="mb-0">514 S. Magnolia St. Orlando, FL 32806.</p>
+                            </div>
+                        </li>
+
+                        <li class="d-flex border-bottom py-4">
+                            <i class="fas fa-mobile-alt fa-3x text-warning mr-4 fa-fw"></i>
+                            <div>
+                                <h5 class="font-weight-bold">Teléfonos:</h5>
+                                <p class="mb-0">(+511) 388-7813, (+511) 374-145</p>
+                            </div>
+                        </li>
+                        <li class="d-flex border-bottom py-4">
+                            <i class="fas fa-envelope-open fa-3x text-danger mr-4 fa-fw"></i>
+                            <div>
+                                <h5 class="font-weight-bold">Email:</h5>
+                                <p class="mb-0">info@aulaideal.com</p>
+                            </div>
+                        </li>
+                        <li class="d-flex border-bottom py-4">
+                            <i class="fab fa-skype fa-3x text-info mr-4 fa-fw"></i>
+                            <div>
+                                <h5 class="font-weight-bold">Skype:</h5>
+                                <p class="mb-0">SonrisasOnline</p>
+                            </div>
+                        </li>
+
+                    </ul>
+
                 </div>
-                <div class="slider__btn slider__btn--right" id="btn-right">&#62</div>
-                <div class="slider__btn slider__btn--left" id="btn-left">&#60</div>
+
+                <div class="col-12 col-lg-6 pt-4 pt-lg-0">
+                    <h2 class="font-weight-bold text-center mb-5">Separa una cita:</h2>
+                    <form action="#" id="mi-formulario">
+
+                        <!-- Campo #nombre -->
+                        <div class="form-group form-row">
+                            <label for="nombre" class="col-form-label col-12 col-md-3">Nombre:</label>
+                            <div class="col-12 col-md-9">
+                                <input type="text" class="form-control" name="nombre" id="nombre"
+                                    placeholder="Ingrese su nombre" data-parsley-required
+                                    data-parsley-required-message="Este campo no puede estar vacio.">
+                            </div>
+                        </div>
+
+                        <!-- Campo #email -->
+                        <div class="form-group form-row">
+                            <label for="email" class="col-form-label col-12 col-md-3">Email:</label>
+                            <div class="col-12 col-md-9">
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="Ingrese su email" data-parsley-required data-parsley-type="email"
+                                    data-parsley-required-message="Este campo no puede estar vacio."
+                                    data-parsley-type-message="Ingrese un email en un formato válido.">
+                            </div>
+                        </div>
+
+                        <!-- Campo #celular -->
+                        <div class="form-group form-row">
+                            <label for="celular" class="col-form-label col-12 col-md-3">Celular:</label>
+                            <div class="col-12 col-md-9">
+                                <input type="text" class="form-control" name="celular" id="celular"
+                                    placeholder="Ingrese su celular" data-parsley-required data-parsley-length="[5, 20]"
+                                    data-parsley-required-message="Este campo no puede estar vacio."
+                                    data-parsley-length-message="El número telefónico debe tener entre 5 a 20 letras.">
+                            </div>
+                        </div>
+
+                        <!-- Campo #mensaje -->
+                        <div class="form-group form-row">
+                            <label for="mensage" class="col-form-label col-12 col-md-3">Mensage:</label>
+                            <div class="col-12 col-md-9">
+                                <textarea name="mensage" id="mensage" rows="4" class="form-control"
+                                    placeholder="Ingrese su mensage." data-parsley-required
+                                    data-parsley-required-message="Este campo no puede estar vacio."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Campo #fecha-cita -->
+                        <div class="form-group form-row">
+                            <label for="fecha-cita" class="col-form-label col-12 col-md-3">Fecha:</label>
+                            <div class="col-12 col-md-9">
+
+                                <div class="input-group">
+                                    <input type="date" id="fecha-cita" name="fecha-cita" class="form-control datepicker"
+                                        data-parsley-required
+                                        data-parsley-required-message="Este campo no puede estar vacio."
+                                        data-parsley-errors-container=".error-fecha-cita">
+
+                                    <label class="input-group-append input-group-cita" for="fecha-cita">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </label>
+                                </div>
+                                <div class="error-fecha-cita">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Campo #dia-cita -->
+                        <div class="form-group form-row">
+                            <label for="dia-cita" class="col-form-label col-12 col-md-3">Día:</label>
+                            <div class="col-12 col-md-9">
+
+                                <div class="input-group">
+                                    <input type="text" id="dia-cita" name="dia-cita" class="form-control timepicker"
+                                        data-parsley-required
+                                        data-parsley-required-message="Este campo no puede estar vacio."
+                                        data-parsley-errors-container=".error-hora-cita">
+                                    <label class="input-group-append input-group-cita" for="dia-cita">
+                                        <span class="input-group-text"><i class="far fa-clock"></i></span>
+                                    </label>
+                                </div>
+                                <div class="error-hora-cita"></div>
+                            </div>
+                        </div>
+
+
+                        <!-- Campo Enviar -->
+                        <div class="form-group form-row">
+                            <div class="col-12 col-md-9 offset-md-3">
+                                <button type="submit" class="btn btn-primary btn-block btn-lg">Enviar</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <!-- Fin slider principal -->
+        </div>
+    </section>
 
-        </section>
+    <!-- Sección #pie-de-pagina -->
 
-        <section class="contenido-principal">
-            <p>Contenido del inicio</p>
-        </section>
+    <footer id="pie-de-pagina" class="bg-dark  text-light text-truncate">
+        <div class="container">
+            <div class="row align-items-center">
 
-        <section class="registrar-correo-inicio">
-            <p>Correo</p>
-        </section>
+                <div class="columna-inclinada col-12 col-md-6 col-xl-5 py-2">
+                    <div class="row">
 
-        <footer class="footer">
-            <p>Footer</p>
-        </footer>
+                        <div class="col-12">
+                            <h2 class="text-white font-weight-bold h1">Don Cactus Padua</h2>
+                        </div>
 
-    </div>
+                        <div class="col-auto text-black-50 ">
+                            <i class="fas fa-briefcase-medical fa-4x"></i>
+                        </div>
+
+                        <div class="col-auto  text-black-50 pl-0">
+                            <h3>(511) 388-7813</h3>
+                            <p>Servicio de ayuda esta disponible 24h/7.</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-7 py-2 text-center text-md-right small">
+                    <ul class="enlaces-secundario list-unstyled d-inline-flex text-uppercase ">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Políticas de Privacidad</a></li>
+                    </ul>
+                    <p>©2019. Todos los derechos reservados.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
 
 
-    <!-- Slideshow principal -->
-    <script src="/assets/slider-principal/js/slider.js"></script>
-    <!-- Fin slideshow principal -->
+
+
+
+
+
+
+
+
+
+    <!-- Carga de "Jquery" -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <!-- Carga de "Popper" -->
+    <script src="js/popper.min.js"></script>
+
+    <!-- Carga de "Bootstrap" -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Carga de "Swiper" -->
+    <script src="js/swiper.min.js"></script>
+
+    <!-- Carga de "VenoBox" -->
+    <script src="js/venobox.min.js"></script>
+
+    <!-- Carga de "Jarallax" -->
+    <script src="js/jarallax.min.js"></script>
+
+    <!-- Carga de "PictureFill" -->
+    <script src="js/picturefill.min.js"></script>
+
+    <!-- Carga de "Waypoints" -->
+    <script src="js/jquery.waypoints.min.js"></script>
+
+    <!-- Carga de "jquery.counterup" -->
+    <script src="js/jquery.counterup.min.js"></script>
+
+    <!-- Carga de "Picker.js" | Crea el selector de fecha y de hora-->
+    <script src="js/pickadate.js/picker.js"></script>
+
+    <!-- Carga de "picker.date.js" | Crea el selector de fecha-->
+    <script src="js/pickadate.js/picker.date.js"></script>
+
+    <!-- Carga de "picker.time.js" | Crea el selector de fecha-->
+    <script src="js/pickadate.js/picker.time.js"></script>
+
+    <!-- Carga de "parsley.js" | Crea la validación de formularios-->
+    <script src="js/parsley.min.js"></script>
+    <script src="js/parsley.es.js"></script>
+
+    <!-- Carga de "Jquery Stickit.js" | Crean un encabezado fijo en la parte superior de la página-->
+    <script src="js/jquery.stickit.min.js"></script>
+
+
+    <!-- Carga de "page-scroll-to-id" | Crean el efecto de scroll entre los enlaces-->
+    <script src="js/jquery.malihu.PageScroll2id.min.js"></script>
+
+   <!-- Carga de "css_browser_selector" | Crean clases para identificar un disp.-->
+   <script src="js/css_browser_selector.js"></script>
+
+
+
+
+    <!-- Archivo para configurar e iniciar las funciones de los scripts -->
+    <script src="js/mis-scripts.js"></script>
+
+
 </body>
 
 </html>
