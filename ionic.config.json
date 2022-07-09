@@ -1,0 +1,7 @@
+{
+  "name": "doncactuspadua",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
