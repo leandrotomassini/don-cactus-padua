@@ -9,4 +9,8 @@ export class HomePage {
 
   constructor() {}
 
+  onSerarchChange(event){
+    console.log(event);
+  }
+  
 }

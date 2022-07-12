@@ -1,0 +1,27 @@
+ion-header ion-toolbar {
+    --background: #00C500;
+    --color: white;
+    font-weight: bold;
+}
+
+.opciones-principales-menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.opciones-principales-menu ion-label ion-icon{
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.logo{
+    font-family: Raleway, sans-serif;
+    font-weight: 700;
+
+}
+
+@media (max-width: 768px) {
+    .opciones-principales-menu, .logo {
+      display: none;
+    }
+}
