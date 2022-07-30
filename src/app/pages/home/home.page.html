@@ -1,9 +1,12 @@
 <app-menu-principal></app-menu-principal>
 <ion-content [fullscreen]="true">
-    <ion-list>
-        <ion-item *ngFor="let producto of productos">
-            <img [src]="producto.fotos[0]" width="100" height="100">
-            <ion-label>{{producto.nombre}}</ion-label>
-        </ion-item>
-    </ion-list>
+    <app-slideshow></app-slideshow>
+    <app-slidercategorias></app-slidercategorias>
+    <app-masvendidos></app-masvendidos>
+    <app-destacado></app-destacado>
+    <app-grupo-categorias></app-grupo-categorias>
+    <app-ofertas-destacadas></app-ofertas-destacadas>
+    <app-oferta-destacada></app-oferta-destacada>
+    <app-video-destacado></app-video-destacado>
+    <app-slidercategorias></app-slidercategorias>
 </ion-content>
