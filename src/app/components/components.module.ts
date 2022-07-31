@@ -5,6 +5,8 @@ import { SwiperModule } from "swiper/angular";
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { SlideComponent } from './slide/slide.component';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { MasvendidosComponent } from './masvendidos/masvendidos.component';
+import { ProductoPage } from '../pages/producto/producto.page';
 
 
 
@@ -12,16 +14,19 @@ import { CategoriasComponent } from './categorias/categorias.component';
   declarations: [
     MenuPrincipalComponent,
     SlideComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    MasvendidosComponent,
+    ProductoPage
   ],
   exports: [
     MenuPrincipalComponent,
     SlideComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    MasvendidosComponent
   ],
   imports: [
     CommonModule,
-    SwiperModule
+    SwiperModule,
   ]
 })
 export class ComponentsModule { }

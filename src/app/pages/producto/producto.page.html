@@ -1,0 +1,21 @@
+<app-menu-principal></app-menu-principal>
+<ion-content class="ion-padding">
+
+  <swiper [config]="config">
+    <ng-template swiperSlide *ngFor="let img of [1,2,3,4]">
+      <img src="https://m.media-amazon.com/images/I/31cn43h6fsL._AC_.jpg" tappable>
+    </ng-template>
+  </swiper>
+
+    nombre: {{nombre}}
+    id: {{id}}
+
+    <ion-button (click)="salirSinArgumentos()">
+        Salir sin argumentos
+    </ion-button>
+
+    <ion-button (click)="salirConArgumentos()">
+        Salir con argumentos
+    </ion-button>
+
+</ion-content>
