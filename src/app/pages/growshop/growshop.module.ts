@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { GrowshopPageRoutingModule } from './growshop-routing.module';
 
 import { GrowshopPage } from './growshop.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GrowshopPageRoutingModule
+    GrowshopPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [GrowshopPage]
 })
