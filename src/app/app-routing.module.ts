@@ -8,16 +8,12 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'registrarse',
-    loadChildren: () => import('./auth/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: '**',
     redirectTo: ''
-  },
+  }
 ];
 @NgModule({
   imports: [

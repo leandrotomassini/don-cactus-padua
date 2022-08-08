@@ -4,9 +4,11 @@ import { SwiperModule } from "swiper/angular";
 
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { SlideComponent } from './slide/slide.component';
-import { CategoriasComponent } from './categorias/categorias.component';
-import { MasvendidosComponent } from './masvendidos/masvendidos.component';
-import { ProductoPage } from '../pages/producto/producto.page';
+import { ProductoPage } from '../../pages/producto/producto.page';
+import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.component';
+import { IonicModule } from '@ionic/angular';
+import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 
@@ -14,19 +16,21 @@ import { ProductoPage } from '../pages/producto/producto.page';
   declarations: [
     MenuPrincipalComponent,
     SlideComponent,
-    CategoriasComponent,
-    MasvendidosComponent,
-    ProductoPage
+    ProductoPage,
+    AvatarSelectorComponent,
+    TablaProductosComponent
   ],
   exports: [
     MenuPrincipalComponent,
     SlideComponent,
-    CategoriasComponent,
-    MasvendidosComponent
+    AvatarSelectorComponent,
+    TablaProductosComponent
   ],
   imports: [
     CommonModule,
     SwiperModule,
+    IonicModule,
+    PipesModule
   ]
 })
 export class ComponentsModule { }

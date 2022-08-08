@@ -4,19 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CategoriasPageRoutingModule } from './categorias-routing.module';
-
-import { CategoriasPage } from './categorias.page';
+import { PanelControlPageRoutingModule } from './panel-control-routing.module';
 import { ComponentsModule } from 'src/app/components/web/components.module';
+
+import { PanelControlPage } from './panel-control.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoriasPageRoutingModule,
+    PanelControlPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [CategoriasPage]
+  declarations: [PanelControlPage]
 })
-export class CategoriasPageModule {}
+export class PanelControlPageModule {}

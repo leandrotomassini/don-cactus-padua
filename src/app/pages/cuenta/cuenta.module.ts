@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CuentaPageRoutingModule } from './cuenta-routing.module';
 
 import { CuentaPage } from './cuenta.page';
-import { ComponentsModule } from 'src/app/components/components.module';
+import { ComponentsModule } from 'src/app/components/web/components.module';
 
 @NgModule({
   imports: [

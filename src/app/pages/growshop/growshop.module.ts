@@ -7,7 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { GrowshopPageRoutingModule } from './growshop-routing.module';
 
 import { GrowshopPage } from './growshop.page';
-import { ComponentsModule } from 'src/app/components/components.module';
+import { ComponentsModule } from 'src/app/components/web/components.module';
+import { PublicacionesModule } from 'src/app/components/publicaciones/publicaciones.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     GrowshopPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    PublicacionesModule
   ],
   declarations: [GrowshopPage]
 })

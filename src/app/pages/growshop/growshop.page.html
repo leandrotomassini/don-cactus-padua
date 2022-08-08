@@ -1,9 +1,6 @@
 <app-menu-principal></app-menu-principal>
 <ion-content>
 
-    <app-slide></app-slide>
-
-    <app-categorias></app-categorias>
-
-    <app-masvendidos></app-masvendidos>
+    <app-cuatro-productos *ngFor="let publicacion of publicaciones" [productos]=" publicacion"></app-cuatro-productos>
+    
 </ion-content>

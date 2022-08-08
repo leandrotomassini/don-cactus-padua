@@ -1,0 +1,34 @@
+ion-img {
+    width: 100%;
+    height: 200px;
+}
+
+.ver-mas, .precio{
+    --color: var(--ion-color-primary);
+    font-weight: bold;
+}
+
+// ion-card-title{
+//     font-weight: bold;
+// }
+
+ion-col{
+    ion-card-title{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    ion-card-subtitle{
+        font-size: 1.3em;
+    }
+}
+
+.contenedor-principal{
+    --background: var(--ion-color-gris);
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.titulo-principal{
+    font-weight: bold;
+}

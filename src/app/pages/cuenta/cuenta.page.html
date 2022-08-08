@@ -2,4 +2,12 @@
 
 <ion-content>
 <h1>Mi cuenta</h1>
+
+<ion-item>
+    <ion-title>{{ usuario.nombre }}</ion-title>
+    <ion-card-subtitle>{{ usuario.correo }}</ion-card-subtitle>
+    <ion-card-content>
+        <ion-label (click)="salir()">Salir</ion-label>
+    </ion-card-content>
+</ion-item>
 </ion-content>

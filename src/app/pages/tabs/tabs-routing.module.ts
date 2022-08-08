@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UsuarioGuard } from 'src/app/guards/usuario.guard';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
       },
       {
         path: 'cuenta',
-        loadChildren: () => import('../cuenta/cuenta.module').then(m => m.CuentaPageModule)
+        loadChildren: () => import('../cuenta/cuenta.module').then(m => m.CuentaPageModule),
+        canLoad: [UsuarioGuard]
       },
       {
         path: 'carrito',
@@ -22,6 +24,10 @@ const routes: Routes = [
       {
         path: 'categorias',
         loadChildren: () => import('../categorias/categorias.module').then(m => m.CategoriasPageModule)
+      }, // TODO: Proteger ruta panel-control con un Guard
+      {
+        path: 'panel-control',
+        loadChildren: () => import('../panel-control/panel-control.module').then( m => m.PanelControlPageModule)
       },
       {
         path: '',
