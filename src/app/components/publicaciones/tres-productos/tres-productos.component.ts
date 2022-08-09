@@ -9,6 +9,7 @@ import { ProductosData } from 'src/app/pages/growshop/growshop.page';
 export class TresProductosComponent implements OnInit, ProductosData {
   
   data: any;
+  titulo: any;
   
   constructor() { }
 

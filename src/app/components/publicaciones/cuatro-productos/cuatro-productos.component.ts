@@ -12,10 +12,12 @@ export class CuatroProductosComponent implements OnInit, ProductosData {
 
   data: any;
 
+  
   constructor() { }
   
-
+  
   ngOnInit() {
+    console.log(this.data)
    
   }
 

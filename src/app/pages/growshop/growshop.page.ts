@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CuatroProductosComponent } from 'src/app/components/publicaciones/cuatro-productos/cuatro-productos.component';
+import { SeisProductosComponent } from 'src/app/components/publicaciones/seis-productos/seis-productos.component';
 import { TresProductosComponent } from 'src/app/components/publicaciones/tres-productos/tres-productos.component';
+import { UnProductoComponent } from 'src/app/components/publicaciones/un-producto/un-producto.component';
 
 import { DynamicComponentDirective } from 'src/app/directives/dynamic-components.directive';
 
@@ -43,30 +45,11 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   mostrarProductos() {
+
     this.obtenerEtiquetas();
     this.obtenerCategorias();
-
-    console.log(this.categorias);
-    console.log(this.etiquetas);
-    console.log(this.productos);
-
-    const productosData = [
-      {
-        data: {
-          productos: this.productos
-        },
-        component: CuatroProductosComponent
-      },
-      {
-        data: {
-          productos: this.productos
-        },
-        component: TresProductosComponent
-      }
-    ];
-
-    this.generateComponent(0, productosData);
-    this.generateComponent(1, productosData);
+    // this.mostrarProductosEtiquetas();
+    this.mostrarProductosCategorias();
   }
 
   obtenerEtiquetas() {
@@ -108,9 +91,143 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
     componentRef.instance.data = productosData[componente].data.productos;
   }
 
+  mostrarProductosEtiquetas() {
+
+    this.etiquetas.forEach(etiqueta => {
+
+      let cantidadProductos = this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre).length;
+      if (cantidadProductos < 1) {
+
+      } else if (cantidadProductos == 1) {
+        let productosData = [
+          {
+            data: {
+              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre),
+              titulo: etiqueta.nombre
+            },
+            component: UnProductoComponent
+          }
+        ];
+
+        this.generateComponent(0, productosData);
+      } else if (cantidadProductos > 1 && cantidadProductos < 4) {
+        let productosData = [
+          {
+            data: {
+              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre),
+              titulo: etiqueta.nombre
+            },
+            component: TresProductosComponent
+          }
+        ];
+
+        this.generateComponent(0, productosData);
+      } else if (cantidadProductos > 3 && cantidadProductos < 6) {
+        let productosData = [
+          {
+            data: {
+              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre),
+              titulo: etiqueta.nombre
+            },
+            component: CuatroProductosComponent
+          }
+        ];
+
+        this.generateComponent(0, productosData);
+      } else {
+        let productosData = [
+          {
+            data: {
+              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre),
+              titulo: etiqueta.nombre
+            },
+            component: SeisProductosComponent
+          }
+        ];
+
+        this.generateComponent(0, productosData);
+      }
+
+    });
+  }
+
+  mostrarProductosCategorias() {
+
+
+    this.categorias.forEach(categoria => {
+
+      let cantidadProductos = this.obtenerProductosDeUnaCategoria(categoria).length;
+
+      if (cantidadProductos < 1) {
+
+      } else if (cantidadProductos == 1) {
+        let productosData = [
+          {
+            data: {
+              productos: this.obtenerProductosDeUnaCategoria(categoria)
+            },
+            component: UnProductoComponent
+          }
+        ];
+
+        this.generateComponent(0, productosData);
+      } else if (cantidadProductos > 1 && cantidadProductos < 4) {
+        let productosData = [
+          {
+            data: {
+              productos: this.obtenerProductosDeUnaCategoria(categoria),
+              titulo: 'Destacados en '
+            },
+            component: TresProductosComponent
+          }
+        ];
+
+        this.generateComponent(0, productosData);
+      } else if (cantidadProductos > 3 && cantidadProductos < 6) {
+        let productosData = [
+          {
+            data: {
+              productos: this.obtenerProductosDeUnaCategoria(categoria),
+              titulo: 'Destacados en '
+            },
+            component: CuatroProductosComponent
+          }
+        ];
+
+        this.generateComponent(0, productosData);
+      } else {
+        let productosData = [
+          {
+            data: {
+              productos: this.obtenerProductosDeUnaCategoria(categoria),
+              titulo: 'Destacados en '
+            },
+            component: SeisProductosComponent
+          }
+        ];
+
+
+        this.generateComponent(0, productosData);
+      }
+
+    });
+  }
+
+
+  obtenerProductosDeUnaCategoria(categoria: string = ''): any[] {
+
+    let productosTemporales: any[] = [];
+
+    this.productos.forEach(producto => {
+      if (producto.categoria.nombre == categoria) {
+        productosTemporales.push(producto);
+      }
+    });
+
+    return productosTemporales;
+  }
 
 }
-
 
 export interface ProductosData {
   data: any
