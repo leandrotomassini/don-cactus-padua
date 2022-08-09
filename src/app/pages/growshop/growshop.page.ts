@@ -1,3 +1,4 @@
+import { LowerCasePipe } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CuatroProductosComponent } from 'src/app/components/publicaciones/cuatro-productos/cuatro-productos.component';
@@ -32,6 +33,8 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   async ngOnInit() {
+
+
     this.productosSubscripcion = await this.productosService
       .getProductos()
       .subscribe(productos => {
@@ -48,19 +51,31 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
 
     this.obtenerEtiquetas();
     this.obtenerCategorias();
-    // this.mostrarProductosEtiquetas();
+    this.mostrarProductosEtiquetas();
     this.mostrarProductosCategorias();
   }
 
   obtenerEtiquetas() {
+    this.etiquetas = [];
     this.productos.forEach(producto => {
       producto.etiquetas.forEach(etiqueta => {
-        if (!this.etiquetas.includes(etiqueta.nombre)) {
+
+        let existe = false;
+
+        this.etiquetas.forEach(etiquetaGuardada => {
+          if (etiqueta.nombre == etiquetaGuardada.nombre) {
+            existe = true;
+          }
+        });
+
+        if (!existe) {
           this.etiquetas.push(etiqueta);
         }
       });
     });
   }
+
+
 
   obtenerCategorias() {
     this.productos.forEach(producto => {
@@ -70,9 +85,11 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  obtenerProductosDeUnaEtiqueta(etiqueta: string): any[] {
+  obtenerProductosDeUnaEtiqueta(etiqueta: string, tituloEtiqueta: string): any[] {
 
     let productosEtiqueta: any[] = [];
+
+    productosEtiqueta.push(tituloEtiqueta);
 
     this.productos.forEach(producto => {
       producto.etiquetas.forEach(etiquetaProducto => {
@@ -93,17 +110,20 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
 
   mostrarProductosEtiquetas() {
 
-    this.etiquetas.forEach(etiqueta => {
+    this.etiquetas.forEach(async etiqueta => {
 
-      let cantidadProductos = this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre).length;
+      let tituloEtiqueta = null;
+      await this.productosService.otenerTituloEtiqueta(etiqueta.nombre).then(resp => { tituloEtiqueta = resp; });
+
+      let cantidadProductos = (this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre, '').length) - 1;
+
       if (cantidadProductos < 1) {
 
       } else if (cantidadProductos == 1) {
         let productosData = [
           {
             data: {
-              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre),
-              titulo: etiqueta.nombre
+              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre, tituloEtiqueta),
             },
             component: UnProductoComponent
           }
@@ -114,8 +134,7 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
         let productosData = [
           {
             data: {
-              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre),
-              titulo: etiqueta.nombre
+              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre, tituloEtiqueta),
             },
             component: TresProductosComponent
           }
@@ -126,8 +145,7 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
         let productosData = [
           {
             data: {
-              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre),
-              titulo: etiqueta.nombre
+              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre, tituloEtiqueta),
             },
             component: CuatroProductosComponent
           }
@@ -138,8 +156,7 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
         let productosData = [
           {
             data: {
-              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre),
-              titulo: etiqueta.nombre
+              productos: this.obtenerProductosDeUnaEtiqueta(etiqueta.nombre, tituloEtiqueta),
             },
             component: SeisProductosComponent
           }
@@ -156,7 +173,7 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
 
     this.categorias.forEach(categoria => {
 
-      let cantidadProductos = this.obtenerProductosDeUnaCategoria(categoria).length;
+      let cantidadProductos = (this.obtenerProductosDeUnaCategoria(categoria, '').length) - 1;
 
       if (cantidadProductos < 1) {
 
@@ -164,7 +181,7 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
         let productosData = [
           {
             data: {
-              productos: this.obtenerProductosDeUnaCategoria(categoria)
+              productos: this.obtenerProductosDeUnaCategoria(categoria, `Lo mejor en ${categoria}`)
             },
             component: UnProductoComponent
           }
@@ -175,8 +192,7 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
         let productosData = [
           {
             data: {
-              productos: this.obtenerProductosDeUnaCategoria(categoria),
-              titulo: 'Destacados en '
+              productos: this.obtenerProductosDeUnaCategoria(categoria, `Nuestra selección especial en ${categoria}`),
             },
             component: TresProductosComponent
           }
@@ -187,8 +203,7 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
         let productosData = [
           {
             data: {
-              productos: this.obtenerProductosDeUnaCategoria(categoria),
-              titulo: 'Destacados en '
+              productos: this.obtenerProductosDeUnaCategoria(categoria, `Destacados en ${categoria}`),
             },
             component: CuatroProductosComponent
           }
@@ -199,13 +214,11 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
         let productosData = [
           {
             data: {
-              productos: this.obtenerProductosDeUnaCategoria(categoria),
-              titulo: 'Destacados en '
+              productos: this.obtenerProductosDeUnaCategoria(categoria, `Más vendidos en ${categoria}`),
             },
             component: SeisProductosComponent
           }
         ];
-
 
         this.generateComponent(0, productosData);
       }
@@ -214,9 +227,11 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
 
-  obtenerProductosDeUnaCategoria(categoria: string = ''): any[] {
+  obtenerProductosDeUnaCategoria(categoria: string = '', titulo: string = ''): any[] {
 
     let productosTemporales: any[] = [];
+
+    productosTemporales.push(titulo);
 
     this.productos.forEach(producto => {
       if (producto.categoria.nombre == categoria) {

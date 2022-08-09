@@ -8,12 +8,16 @@ import { ProductosData } from 'src/app/pages/growshop/growshop.page';
   styleUrls: ['./video.component.scss'],
 })
 export class VideoComponent implements OnInit, ProductosData {
-
   data: any;
-  titulo: any;
-  
-  constructor() { }
-  
-  ngOnInit() {}
+  titulo: string = '';
+
+  constructor() {
+
+  }
+
+
+  ngOnInit() {
+    this.titulo = this.data.shift();
+  }
 
 }
