@@ -17,8 +17,7 @@ export class CuatroProductosComponent implements OnInit, ProductosData {
   
   
   ngOnInit() {
-    console.log(this.data)
-   
+    console.log("Cuatro productos" , this.data)
   }
 
 

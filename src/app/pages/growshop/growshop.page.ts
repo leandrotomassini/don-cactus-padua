@@ -164,49 +164,52 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
         let productosData = [
           {
             data: {
+              titulo: 'Destacados en ',
               productos: this.obtenerProductosDeUnaCategoria(categoria)
             },
             component: UnProductoComponent
           }
         ];
-
-        this.generateComponent(0, productosData);
+        let productosDataJson = JSON.stringify(productosData);
+        this.generateComponent(0, productosDataJson);
       } else if (cantidadProductos > 1 && cantidadProductos < 4) {
         let productosData = [
           {
             data: {
-              productos: this.obtenerProductosDeUnaCategoria(categoria),
-              titulo: 'Destacados en '
+              titulo: 'Destacados en ',
+              productos: this.obtenerProductosDeUnaCategoria(categoria)
             },
             component: TresProductosComponent
           }
         ];
 
-        this.generateComponent(0, productosData);
+        let productosDataJson = JSON.stringify(productosData);
+        this.generateComponent(0, productosDataJson);
       } else if (cantidadProductos > 3 && cantidadProductos < 6) {
         let productosData = [
           {
             data: {
+              titulo: 'Destacados en ',
               productos: this.obtenerProductosDeUnaCategoria(categoria),
-              titulo: 'Destacados en '
             },
             component: CuatroProductosComponent
           }
         ];
 
-        this.generateComponent(0, productosData);
+        let productosDataJson = JSON.stringify(productosData);
+        this.generateComponent(0, productosDataJson);
       } else {
         let productosData = [
           {
             data: {
+              titulo: 'Destacados en ',
               productos: this.obtenerProductosDeUnaCategoria(categoria),
-              titulo: 'Destacados en '
             },
             component: SeisProductosComponent
           }
         ];
 
-
+        console.log(productosData)
         this.generateComponent(0, productosData);
       }
 
