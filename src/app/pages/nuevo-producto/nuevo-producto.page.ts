@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { Editor, Validators } from 'ngx-editor';
+
 import { CategoriasService } from 'src/app/services/categorias.service';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
 
