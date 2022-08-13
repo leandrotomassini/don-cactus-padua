@@ -1,13 +1,72 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>nuevo-producto</ion-title>
+    <ion-title *ngIf="nuevoProductoFormulario.value.nombre == ''">Nuevo producto</ion-title>
+    <ion-title *ngIf="!nuevoProductoFormulario.value.nombre == ''">{{nuevoProductoFormulario.value.nombre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  Nuevo
-  <div class="NgxEditor__Wrapper">
-    <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
-    <ngx-editor [editor]="editor" [ngModel]="html" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
-  </div>
+  <ion-card>
+    <form [formGroup]="nuevoProductoFormulario">
+
+      <ion-item>
+        <ion-label>Nombre del producto:</ion-label>
+        <ion-input formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-label class="mensaje-error" *ngIf="campoEsValido('nombre')">
+        Debe de tener por lo menos cinco caracteres.
+      </ion-label>
+
+      <ion-item>
+        <ion-input formControlName="img" placeholder="Pegue aquí la URL de la foto"></ion-input>
+        <ion-button (click)="guardarFoto()" expand="block" fill="clear" shape="round">
+          Agregar foto
+        </ion-button>
+      </ion-item>
+      <ion-list *ngIf="fotos.length > 0">
+        <ion-item *ngFor="let foto of fotos; let i = index">
+          <ion-icon name="close-circle-outline" (click)="borrarFoto(i)"></ion-icon>
+          <img [src]="foto" width="150px" height="150px">
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        
+      </ion-item>
+      <ion-item>
+        <ion-label>Precio:</ion-label>
+        <ion-input formControlName="precio" type="number"></ion-input>
+      </ion-item>
+      <ion-label class="mensaje-error" *ngIf="campoEsValido('precio')">
+        Debe de tener un precio.
+      </ion-label>
+
+      <ion-item>
+        <ion-label>Stock:</ion-label>
+        <ion-input formControlName="stock" type="number"></ion-input>
+      </ion-item>
+      <ion-label class="mensaje-error" *ngIf="campoEsValido('stock')">
+        Debe de tener un precio.
+      </ion-label>
+
+      <ion-item>
+        <ion-select multiple="false" placeholder="Seleccione una categoría" formControlName="categoria" expand="block">
+          <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.nombre">
+            {{categoria.nombre}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select multiple="true" placeholder="Seleccione las etiquetas" formControlName="etiquetas" expand="block">
+          <ion-select-option *ngFor="let etiqueta of etiquetas" [value]="etiqueta.nombre">
+            {{etiqueta.nombre}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button (click)="guardarProducto()" expand="block" fill="clear" shape="round">
+        Guardar cambios
+      </ion-button>
+    </form>
+  </ion-card>
 </ion-content>

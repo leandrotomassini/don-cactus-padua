@@ -10,6 +10,7 @@ import { IonicModule } from '@ionic/angular';
 import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { NuevoProductoPage } from 'src/app/pages/nuevo-producto/nuevo-producto.page';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -32,7 +33,9 @@ import { NuevoProductoPage } from 'src/app/pages/nuevo-producto/nuevo-producto.p
     CommonModule,
     SwiperModule,
     IonicModule,
-    PipesModule
+    PipesModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ComponentsModule { }
