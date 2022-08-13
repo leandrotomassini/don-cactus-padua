@@ -33,6 +33,7 @@ export class TablaProductosComponent implements OnInit, OnDestroy {
   }
 
   async agregarProducto() {
+
     const modal = await this.modalController.create({
       component: NuevoProductoPage
     });

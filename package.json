@@ -30,6 +30,7 @@
     "@ionic/storage-angular": "^3.0.6",
     "cordova-plugin-nativestorage": "^2.3.2",
     "cordova-sqlite-storage": "^6.0.0",
+    "ngx-editor": "^14.2.0",
     "ngx-socket-io": "^4.3.0",
     "rxjs": "~6.6.0",
     "swiper": "^8.3.2",

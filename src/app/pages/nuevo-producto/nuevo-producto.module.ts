@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+
+import { NgxEditorModule } from 'ngx-editor';
 
 import { NuevoProductoPageRoutingModule } from './nuevo-producto-routing.module';
 
@@ -13,7 +15,9 @@ import { NuevoProductoPage } from './nuevo-producto.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    NuevoProductoPageRoutingModule
+    NuevoProductoPageRoutingModule,
+    NgxEditorModule,
+    ReactiveFormsModule
   ],
   declarations: [NuevoProductoPage]
 })

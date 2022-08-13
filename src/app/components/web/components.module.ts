@@ -9,6 +9,7 @@ import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.compo
 import { IonicModule } from '@ionic/angular';
 import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { NuevoProductoPage } from 'src/app/pages/nuevo-producto/nuevo-producto.page';
 
 
 
@@ -18,7 +19,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     SlideComponent,
     ProductoPage,
     AvatarSelectorComponent,
-    TablaProductosComponent
+    TablaProductosComponent,
+    NuevoProductoPage
   ],
   exports: [
     MenuPrincipalComponent,
