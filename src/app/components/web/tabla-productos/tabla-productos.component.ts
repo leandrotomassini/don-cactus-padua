@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { NuevoProductoPage } from 'src/app/pages/nuevo-producto/nuevo-producto.page';
 
 import { ProductosService } from 'src/app/services/productos.service';
 
@@ -14,7 +16,7 @@ export class TablaProductosComponent implements OnInit, OnDestroy {
   productosSubscripcion: Subscription;
   textoBuscar: string = '';
 
-  constructor(private productosService: ProductosService) { }
+  constructor(private productosService: ProductosService, private modalController: ModalController) { }
 
   ngOnInit() {
     this.productosSubscripcion = this.productosService.getProductos().subscribe(productos => {
@@ -26,7 +28,15 @@ export class TablaProductosComponent implements OnInit, OnDestroy {
     this.productosSubscripcion.unsubscribe();
   }
 
-  onSearchChange($event){
+  onSearchChange($event) {
     this.textoBuscar = $event.detail.value;
+  }
+
+  async agregarProducto() {
+    const modal = await this.modalController.create({
+      component: NuevoProductoPage
+    });
+
+    await modal.present();
   }
 }
