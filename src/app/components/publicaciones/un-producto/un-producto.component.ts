@@ -10,10 +10,14 @@ import { ProductosData } from 'src/app/pages/growshop/growshop.page';
 export class UnProductoComponent implements OnInit, ProductosData {
 
   data: any;
-  titulo: any;
-  
-  constructor() { }
+  titulo: string = '';
 
-  ngOnInit() { }
+  constructor() {
+    
+  }
 
+
+  ngOnInit() {
+    this.titulo = this.data.shift();
+  }
 }

@@ -7,12 +7,16 @@ import { ProductosData } from 'src/app/pages/growshop/growshop.page';
   styleUrls: ['./tres-productos.component.scss'],
 })
 export class TresProductosComponent implements OnInit, ProductosData {
-  
   data: any;
-  titulo: any;
-  
-  constructor() { }
+  titulo: string = '';
 
-  ngOnInit() {}
+  constructor() {
+    
+  }
+
+
+  ngOnInit() {
+    this.titulo = this.data.shift();
+  }
 
 }

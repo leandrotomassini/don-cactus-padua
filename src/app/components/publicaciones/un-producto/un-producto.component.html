@@ -1,10 +1,10 @@
 <ion-card class="ion-text-center contenedor-principal">
 
   <ion-card-header>
-    <ion-card-title class="titulo-principal">Un producto</ion-card-title>
+    <ion-card-title class="titulo-principal">{{titulo | titlecase}}</ion-card-title>
   </ion-card-header>
 
-  <!-- <ion-grid fixed>
+  <ion-grid fixed>
     <ion-row>
       <ion-col size="12" size-lg="12" size-md="12" *ngFor="let producto of data | slice:0:1">
         <ion-card class="ion-text-center">
@@ -19,10 +19,10 @@
     <ion-row>
       <ion-col size="12">
         <ion-card-header>
-          <ion-card-subtitle class="ver-mas">Ver más</ion-card-subtitle>
+          <!-- <ion-card-subtitle class="ver-mas">Ver más</ion-card-subtitle> -->
         </ion-card-header>
       </ion-col>
     </ion-row>
-  </ion-grid> -->
+  </ion-grid>
 
 </ion-card>

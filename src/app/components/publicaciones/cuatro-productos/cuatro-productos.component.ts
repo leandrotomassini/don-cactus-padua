@@ -11,13 +11,15 @@ import { ProductosData } from 'src/app/pages/growshop/growshop.page';
 export class CuatroProductosComponent implements OnInit, ProductosData {
 
   data: any;
+  titulo: string = '';
 
-  
-  constructor() { }
-  
-  
+  constructor() {
+
+  }
+
+
   ngOnInit() {
-    console.log("Cuatro productos" , this.data)
+    this.titulo = this.data.shift();
   }
 
 
