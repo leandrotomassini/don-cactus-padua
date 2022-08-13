@@ -11,6 +11,7 @@ import { TablaProductosComponent } from './tabla-productos/tabla-productos.compo
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { NuevoProductoPage } from 'src/app/pages/nuevo-producto/nuevo-producto.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxEditorModule } from 'ngx-editor';
 
 
 
@@ -35,7 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IonicModule,
     PipesModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxEditorModule
   ]
 })
 export class ComponentsModule { }

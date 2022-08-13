@@ -49,7 +49,7 @@ export class NuevoProductoPage implements OnInit, OnDestroy {
   }
 
   guardarProducto() {
-
+    console.log(this.nuevoProductoFormulario.value.descripcion);
   }
 
   cargarCategorias() {

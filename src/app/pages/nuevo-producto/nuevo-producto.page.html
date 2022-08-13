@@ -30,7 +30,10 @@
         </ion-item>
       </ion-list>
       <ion-item>
-        
+        <div class="NgxEditor__Wrapper">
+          <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+          <ngx-editor [editor]="editor" [placeholder]="'Type here...'" formControlName="descripcion"></ngx-editor>
+        </div>
       </ion-item>
       <ion-item>
         <ion-label>Precio:</ion-label>
