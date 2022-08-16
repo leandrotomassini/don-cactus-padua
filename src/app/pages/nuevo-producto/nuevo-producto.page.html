@@ -32,12 +32,13 @@
       <ion-item>
         <div class="NgxEditor__Wrapper">
           <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
-          <ngx-editor [editor]="editor" [placeholder]="'Type here...'" formControlName="descripcion"></ngx-editor>
+          <ngx-editor [editor]="editor" [placeholder]="'Escribe la descripción aquí...'" formControlName="descripcion">
+          </ngx-editor>
         </div>
       </ion-item>
       <ion-item>
         <ion-label>Precio:</ion-label>
-        <ion-input formControlName="precio" type="number"></ion-input>
+        <ion-input formControlName="precio" type="number" min="0"></ion-input>
       </ion-item>
       <ion-label class="mensaje-error" *ngIf="campoEsValido('precio')">
         Debe de tener un precio.
@@ -45,7 +46,7 @@
 
       <ion-item>
         <ion-label>Stock:</ion-label>
-        <ion-input formControlName="stock" type="number"></ion-input>
+        <ion-input formControlName="stock" type="number" min="0"></ion-input>
       </ion-item>
       <ion-label class="mensaje-error" *ngIf="campoEsValido('stock')">
         Debe de tener un precio.
@@ -53,7 +54,7 @@
 
       <ion-item>
         <ion-select multiple="false" placeholder="Seleccione una categoría" formControlName="categoria" expand="block">
-          <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.nombre">
+          <ion-select-option *ngFor="let categoria of categorias" [value]="categoria._id">
             {{categoria.nombre}}
           </ion-select-option>
         </ion-select>
@@ -61,7 +62,7 @@
 
       <ion-item>
         <ion-select multiple="true" placeholder="Seleccione las etiquetas" formControlName="etiquetas" expand="block">
-          <ion-select-option *ngFor="let etiqueta of etiquetas" [value]="etiqueta.nombre">
+          <ion-select-option *ngFor="let etiqueta of etiquetas" [value]="etiqueta._id">
             {{etiqueta.nombre}}
           </ion-select-option>
         </ion-select>

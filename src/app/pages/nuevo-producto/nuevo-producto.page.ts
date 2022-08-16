@@ -5,6 +5,7 @@ import { Editor, Validators } from 'ngx-editor';
 
 import { CategoriasService } from 'src/app/services/categorias.service';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
+import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-nuevo-producto',
@@ -16,6 +17,7 @@ export class NuevoProductoPage implements OnInit, OnDestroy {
   categorias: any;
   etiquetas: any;
   fotos: string[] = [];
+  producto: any;
 
   editor: Editor;
   html: '';
@@ -27,12 +29,12 @@ export class NuevoProductoPage implements OnInit, OnDestroy {
     stock: [0, [Validators.required, Validators.minLength(3)]],
     img: ['', [Validators.required, Validators.minLength(3)]],
     descripcion: ['', [Validators.required, Validators.minLength(3)]],
-    categoria: ['', [Validators.required, Validators.minLength(3)]],
-    etiquetas: ['', [Validators.required, Validators.minLength(3)]],
+    categoria: [''],
+    etiquetas: [''],
   });
 
   constructor(public modalController: ModalController,
-    private fb: FormBuilder, private categoriasService: CategoriasService, private etiquetasService: EtiquetasService) { }
+    private fb: FormBuilder, private categoriasService: CategoriasService, private etiquetasService: EtiquetasService, private productosService: ProductosService) { }
 
   ngOnDestroy(): void {
     this.editor.destroy();
@@ -49,7 +51,10 @@ export class NuevoProductoPage implements OnInit, OnDestroy {
   }
 
   guardarProducto() {
-    console.log(this.nuevoProductoFormulario.value.descripcion);
+    this.producto = this.nuevoProductoFormulario.value;
+    this.producto.img = this.fotos;
+    console.log(this.producto);
+    this.productosService.guardarProducto(this.producto).then(console.log).catch(console.log);
   }
 
   cargarCategorias() {
@@ -73,6 +78,7 @@ export class NuevoProductoPage implements OnInit, OnDestroy {
     if (!existe) {
       this.fotos.push(this.nuevoProductoFormulario.value.img);
     }
+
   }
 
   borrarFoto(indice: number) {
