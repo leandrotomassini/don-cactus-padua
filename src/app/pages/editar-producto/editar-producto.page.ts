@@ -1,33 +1,34 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { Editor, Validators } from 'ngx-editor';
-
 import { CategoriasService } from 'src/app/services/categorias.service';
 import { EtiquetasService } from 'src/app/services/etiquetas.service';
 import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
-  selector: 'app-nuevo-producto',
-  templateUrl: './nuevo-producto.page.html',
-  styleUrls: ['./nuevo-producto.page.scss'],
+  selector: 'app-editar-producto',
+  templateUrl: './editar-producto.page.html',
+  styleUrls: ['./editar-producto.page.scss'],
 })
-export class NuevoProductoPage implements OnInit, OnDestroy {
+export class EditarProductoPage implements OnInit, OnDestroy {
+  @Input() productoEditar: any;
+  fotoInput: string = '';
 
   categorias: any;
   etiquetas: any;
   fotos: string[] = [];
   producto: any;
-  fotoInput: string = '';
 
   editor: Editor;
   html: '';
 
 
-  nuevoProductoFormulario: FormGroup = this.fb.group({
+  editarProductoFormulario: FormGroup = this.fb.group({
+    _id: [''],
     nombre: ['', [Validators.required, Validators.minLength(5)]],
-    precio: [0, [Validators.required, Validators.minLength(8)]],
-    stock: [0, [Validators.required, Validators.minLength(3)]],
+    precio: ['', [Validators.required, Validators.minLength(8)]],
+    stock: ['', [Validators.required, Validators.minLength(3)]],
     img: ['', [Validators.required, Validators.minLength(3)]],
     descripcion: ['', [Validators.required, Validators.minLength(3)]],
     categoria: [''],
@@ -45,24 +46,36 @@ export class NuevoProductoPage implements OnInit, OnDestroy {
     this.cargarCategorias();
     this.cargarEtiquetas();
     this.editor = new Editor();
+    this.fotos = this.productoEditar.img;
+
+    this.editarProductoFormulario.reset({
+      nombre: this.productoEditar.nombre,
+      precio: this.productoEditar.precio,
+      stock: this.productoEditar.stock,
+      img: '',
+      descripcion: this.productoEditar.descripcion,
+      categoria: this.productoEditar.categoria,
+      etiquetas: this.productoEditar.etiquetas,
+    });
   }
 
   campoEsValido(campo: string) {
-    return this.nuevoProductoFormulario.controls[campo].errors && this.nuevoProductoFormulario.controls[campo].touched;
+    return this.editarProductoFormulario.controls[campo].errors && this.editarProductoFormulario.controls[campo].touched;
   }
 
   guardarProducto() {
-    this.producto = this.nuevoProductoFormulario.value;
+    this.editarProductoFormulario.value._id = this.productoEditar._id;
+    this.producto = this.editarProductoFormulario.value;
     this.producto.img = this.fotos;
-    this.productosService.guardarProducto(this.producto).then(console.log).catch(console.log);
+    this.productosService.editarProducto(this.producto).then().catch(console.log);
     this.modalController.dismiss();
   }
 
-  cargarCategorias() {
+  async cargarCategorias() {
     this.categoriasService.obtenerCategorias().then(categorias => this.categorias = categorias);
   }
 
-  cargarEtiquetas() {
+  async cargarEtiquetas() {
     this.etiquetasService.obtenerEtiquetas().then(etiquetas => this.etiquetas = etiquetas);
   }
 
@@ -71,21 +84,23 @@ export class NuevoProductoPage implements OnInit, OnDestroy {
     let existe = false;
 
     this.fotos.forEach(fotoGuardada => {
-      if (fotoGuardada == this.nuevoProductoFormulario.value.img) {
+      if (fotoGuardada == this.editarProductoFormulario.value.img) {
         existe = true;
       }
     });
 
     if (!existe) {
-      this.fotos.push(this.nuevoProductoFormulario.value.img);
+      this.fotos.push(this.editarProductoFormulario.value.img);
     }
 
     this.fotoInput = '';
-
   }
 
   borrarFoto(indice: number) {
     this.fotos.splice(indice, 1);
   }
 
+  salir() {
+    this.modalController.dismiss();
+  }
 }

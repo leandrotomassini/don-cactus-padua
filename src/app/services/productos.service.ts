@@ -25,11 +25,26 @@ export class ProductosService implements OnInit {
     return this.wsService.listen('productos');
   }
 
+  getProducto(idProducto: string) {
+    return new Promise(resolve => {
+      this.http.get(`${URL}/productos/${idProducto}`)
+        .subscribe(resp => {
+          if (resp['ok']) {
+            resolve(resp);
+          } else {
+            resolve(false);
+          }
+        }, (err) => {
+          resolve(err);
+        });
+    });
+  }
+
   getProductosBorrados() {
     this.wsService.emit('get-productos-borrados');
     return this.wsService.listen('productos-borrados');
   }
-  
+
   getProductosSinStock() {
     this.wsService.emit('get-productos-sin-stock');
     return this.wsService.listen('productos-sin-stock');
@@ -91,6 +106,27 @@ export class ProductosService implements OnInit {
 
   async cargarToken() {
     this.token = await this.storage.get('token') || null;
+  }
+
+ async editarProducto(producto: any) {
+
+    await this.usuarioService.cargarToken();
+
+    const headers = new HttpHeaders({
+      'x-token': this.usuarioService.token
+    });
+    return new Promise(resolve => {
+      this.http.put(`${URL}/productos/${producto._id}`, producto, { headers })
+        .subscribe(resp => {
+          if (resp['ok']) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        }, (err) => {
+          resolve(err);
+        });
+    });
   }
 }
 

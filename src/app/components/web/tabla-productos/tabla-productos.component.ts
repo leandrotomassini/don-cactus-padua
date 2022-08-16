@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { EditarProductoPage } from 'src/app/pages/editar-producto/editar-producto.page';
 import { NuevoProductoPage } from 'src/app/pages/nuevo-producto/nuevo-producto.page';
 
 import { ProductosService } from 'src/app/services/productos.service';
@@ -45,6 +46,18 @@ export class TablaProductosComponent implements OnInit, OnDestroy {
 
     const modal = await this.modalController.create({
       component: NuevoProductoPage
+    });
+
+    await modal.present();
+  }
+
+  async editarProducto(productoEditar) {
+    
+    const modal = await this.modalController.create({
+      component: EditarProductoPage,
+      componentProps: {
+        productoEditar
+      }
     });
 
     await modal.present();

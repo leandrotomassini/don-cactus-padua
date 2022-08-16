@@ -12,6 +12,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { NuevoProductoPage } from 'src/app/pages/nuevo-producto/nuevo-producto.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxEditorModule } from 'ngx-editor';
+import { EditarProductoPage } from 'src/app/pages/editar-producto/editar-producto.page';
 
 
 
@@ -22,7 +23,8 @@ import { NgxEditorModule } from 'ngx-editor';
     ProductoPage,
     AvatarSelectorComponent,
     TablaProductosComponent,
-    NuevoProductoPage
+    NuevoProductoPage,
+    EditarProductoPage
   ],
   exports: [
     MenuPrincipalComponent,

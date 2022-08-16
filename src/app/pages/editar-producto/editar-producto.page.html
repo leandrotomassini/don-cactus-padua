@@ -1,13 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title *ngIf="nuevoProductoFormulario.value.nombre == ''">Nuevo producto</ion-title>
-    <ion-title *ngIf="!nuevoProductoFormulario.value.nombre == ''">{{nuevoProductoFormulario.value.nombre}}</ion-title>
+    <ion-title *ngIf="editarProductoFormulario.value.nombre == ''">Editar producto</ion-title>
+    <ion-title *ngIf="!editarProductoFormulario.value.nombre == ''">{{editarProductoFormulario.value.nombre}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
-    <form [formGroup]="nuevoProductoFormulario">
+    <form [formGroup]="editarProductoFormulario">
 
       <ion-item>
         <ion-label>Nombre del producto:</ion-label>
@@ -31,9 +32,8 @@
       </ion-list>
       <ion-item>
         <div class="NgxEditor__Wrapper">
-          <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
-          <ngx-editor [editor]="editor" [placeholder]="'Escribe la descripción aquí...'" formControlName="descripcion">
-          </ngx-editor>
+          <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
+          <ngx-editor [editor]="editor" [placeholder]="'Escribe la descripción aquí...'" formControlName="descripcion" [ngModel]="contenidoProducto"></ngx-editor>
         </div>
       </ion-item>
       <ion-item>
@@ -70,6 +70,9 @@
 
       <ion-button (click)="guardarProducto()" expand="block" fill="clear" shape="round">
         Guardar cambios
+      </ion-button>
+      <ion-button (click)="salir()" expand="block" fill="clear" shape="round">
+        Volver atrás
       </ion-button>
     </form>
   </ion-card>
