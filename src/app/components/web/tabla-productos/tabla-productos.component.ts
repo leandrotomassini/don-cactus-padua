@@ -22,6 +22,15 @@ export class TablaProductosComponent implements OnInit, OnDestroy {
     this.productosSubscripcion = this.productosService.getProductos().subscribe(productos => {
       this.productos = productos;
     });
+
+    this.productosSubscripcion = this.productosService.getProductosBorrados().subscribe(productos => {
+      this.productos = productos;
+    });
+
+    this.productosSubscripcion = this.productosService.getProductosSinStock().subscribe(productos => {
+      this.productos = productos;
+    });
+
   }
 
   ngOnDestroy(): void {
@@ -39,5 +48,23 @@ export class TablaProductosComponent implements OnInit, OnDestroy {
     });
 
     await modal.present();
+  }
+
+  borrarProducto(idProducto: string) {
+    this.productosService.borrarProducto(idProducto).then().catch();
+  }
+
+
+  segmentChanged($event) {
+    if ($event.detail.value == 'borrados') {
+      this.productosService.getProductosBorrados();
+    }
+
+    if ($event.detail.value == 'publicados') {
+      this.productosService.getProductos();
+    }
+    if ($event.detail.value == 'sin-stock') {
+      this.productosService.getProductosSinStock();
+    }
   }
 }

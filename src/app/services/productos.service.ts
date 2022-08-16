@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
 import { environment } from 'src/environments/environment';
 import { UsuarioService } from './usuario.service';
-
 import { WebsocketService } from './websocket.service';
 
 const URL = environment.url;
@@ -13,7 +13,9 @@ const URL = environment.url;
 })
 export class ProductosService implements OnInit {
 
-  constructor(private wsService: WebsocketService, private http: HttpClient, private usuarioService: UsuarioService) { }
+  token = '';
+
+  constructor(private wsService: WebsocketService, private storage: Storage, private http: HttpClient, private usuarioService: UsuarioService) { }
 
   ngOnInit() {
   }
@@ -21,6 +23,16 @@ export class ProductosService implements OnInit {
   getProductos() {
     this.wsService.emit('get-productos');
     return this.wsService.listen('productos');
+  }
+
+  getProductosBorrados() {
+    this.wsService.emit('get-productos-borrados');
+    return this.wsService.listen('productos-borrados');
+  }
+  
+  getProductosSinStock() {
+    this.wsService.emit('get-productos-sin-stock');
+    return this.wsService.listen('productos-sin-stock');
   }
 
   otenerTituloEtiqueta(etiquetaNombre: string = '') {
@@ -34,12 +46,15 @@ export class ProductosService implements OnInit {
 
   async guardarProducto(producto) {
 
+    await this.usuarioService.cargarToken();
+
+
     const headers = new HttpHeaders({
       'x-token': this.usuarioService.token
     });
     return new Promise(resolve => {
       this.http.post(`${URL}/productos`, producto, { headers })
-        .subscribe(async resp => {
+        .subscribe(resp => {
           if (resp['ok']) {
             resolve(true);
           } else {
@@ -50,6 +65,32 @@ export class ProductosService implements OnInit {
         });
     });
 
+  }
+
+  async borrarProducto(idProducto: string) {
+
+    await this.usuarioService.cargarToken();
+
+    const headers = new HttpHeaders({
+      'x-token': this.usuarioService.token
+    });
+
+    return new Promise(resolve => {
+      this.http.delete(`${URL}/productos/${idProducto}`, { headers })
+        .subscribe(async resp => {
+          if (resp['ok']) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        }, (err) => {
+          resolve(err);
+        });
+    });
+  }
+
+  async cargarToken() {
+    this.token = await this.storage.get('token') || null;
   }
 }
 

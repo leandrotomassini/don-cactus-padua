@@ -1,14 +1,28 @@
+
+
+
 <ion-card class="ion-text-center">
   <ion-card-header>
     <ion-card-title class="titulo-principal">Productos</ion-card-title>
     <ion-searchbar (ionChange)="onSearchChange($event)" placeholder="Buscar un producto" mode="ios" inputmode="text">
     </ion-searchbar>
+    <ion-segment value="publicados" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="publicados">
+        <ion-label>Públicados</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="sin-stock">
+        <ion-label>Sin stock</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="borrados">
+        <ion-label>Borrados</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-card-header>
   <ion-card-content>
     <ion-list>
       <ion-button (click)="agregarProducto()" fill="clear" shape="round">
         <ion-icon name="add-circle-outline"></ion-icon>
-        Agregar producto
+        Agregar nuevo producto
       </ion-button>
     </ion-list>
     <ion-list>
@@ -60,12 +74,10 @@
               </li>
             </ul>
           </ion-col>
+          <ion-icon name="trash-outline" class="icono-borrar" (click)="borrarProducto(producto._id)"></ion-icon>
         </ion-row>
       </ion-grid>
     </ion-list>
+
   </ion-card-content>
 </ion-card>
-
-
-
-

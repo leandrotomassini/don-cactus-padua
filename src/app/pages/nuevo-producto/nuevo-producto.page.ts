@@ -53,8 +53,8 @@ export class NuevoProductoPage implements OnInit, OnDestroy {
   guardarProducto() {
     this.producto = this.nuevoProductoFormulario.value;
     this.producto.img = this.fotos;
-    console.log(this.producto);
     this.productosService.guardarProducto(this.producto).then(console.log).catch(console.log);
+    this.modalController.dismiss();
   }
 
   cargarCategorias() {
