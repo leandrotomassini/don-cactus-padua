@@ -1,0 +1,39 @@
+.etiqueta {
+    margin-left: 5px;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.etiquetas li {
+    margin-top: 8px;
+    list-style: none;
+    float: left;
+}
+
+.producto {
+    border-bottom: 1px solid #EDEDED;
+    padding: 1em;
+}
+
+.precio {
+    font-weight: bold;
+}
+
+
+.icono-borrar {
+    cursor: pointer;
+    margin-left: 1em;
+    margin-top: 0.5em;
+    font-size: 1.5em;
+    color: red;
+}
+
+.editar-producto {
+    cursor: pointer;
+    margin-left: 1em;
+    font-size: 1.5em;
+    color: blue;
+}

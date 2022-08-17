@@ -13,7 +13,15 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: ''
+  },  {
+    path: 'nueva-etiqueta',
+    loadChildren: () => import('./pages/nueva-etiqueta/nueva-etiqueta.module').then( m => m.NuevaEtiquetaPageModule)
+  },
+  {
+    path: 'editar-etiqueta',
+    loadChildren: () => import('./pages/editar-etiqueta/editar-etiqueta.module').then( m => m.EditarEtiquetaPageModule)
   }
+
 
 
 ];

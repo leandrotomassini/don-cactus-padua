@@ -13,6 +13,12 @@ import { NuevoProductoPage } from 'src/app/pages/nuevo-producto/nuevo-producto.p
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxEditorModule } from 'ngx-editor';
 import { EditarProductoPage } from 'src/app/pages/editar-producto/editar-producto.page';
+import { TablaCategoriasComponent } from './tabla-categorias/tabla-categorias.component';
+import { EditarCategoriaPage } from 'src/app/pages/editar-categoria/editar-categoria.page';
+import { NuevaCategoriaPage } from 'src/app/pages/nueva-categoria/nueva-categoria.page';
+import { EditarEtiquetaPage } from 'src/app/pages/editar-etiqueta/editar-etiqueta.page';
+import { NuevaEtiquetaPage } from 'src/app/pages/nueva-etiqueta/nueva-etiqueta.page';
+import { TablaEtiquetasComponent } from './tabla-etiquetas/tabla-etiquetas.component';
 
 
 
@@ -24,13 +30,21 @@ import { EditarProductoPage } from 'src/app/pages/editar-producto/editar-product
     AvatarSelectorComponent,
     TablaProductosComponent,
     NuevoProductoPage,
-    EditarProductoPage
+    EditarProductoPage,
+    EditarCategoriaPage,
+    NuevaCategoriaPage,
+    EditarEtiquetaPage,
+    NuevaEtiquetaPage,
+    TablaCategoriasComponent,
+    TablaEtiquetasComponent
   ],
   exports: [
     MenuPrincipalComponent,
     SlideComponent,
     AvatarSelectorComponent,
-    TablaProductosComponent
+    TablaProductosComponent,
+    TablaCategoriasComponent,
+    TablaEtiquetasComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +53,7 @@ import { EditarProductoPage } from 'src/app/pages/editar-producto/editar-product
     PipesModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxEditorModule
+    NgxEditorModule,
   ]
 })
 export class ComponentsModule { }
