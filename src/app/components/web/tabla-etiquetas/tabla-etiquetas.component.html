@@ -25,6 +25,9 @@
         <ion-grid fixed>
           <ion-row>
             <ion-col>
+              <ion-label class="precio">Título</ion-label>
+            </ion-col>
+            <ion-col>
               <ion-label class="precio">Etiqueta</ion-label>
             </ion-col>
             <ion-col>
@@ -36,7 +39,10 @@
       <ion-grid>
         <ion-row *ngFor="let etiqueta of etiquetas | filtroPipe:textoBuscar:'nombre'" class="producto">
           <ion-col>
-            <ion-label>{{etiqueta.nombre}}</ion-label>
+            <ion-label>{{etiqueta.titulo}}</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label class="etiqueta">{{etiqueta.nombre}}</ion-label>
           </ion-col>
           <ion-col>
             <span>

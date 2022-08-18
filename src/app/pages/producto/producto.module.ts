@@ -20,7 +20,6 @@ import { ComponentsModule } from 'src/app/components/web/components.module';
     ProductoPageRoutingModule,
     ComponentsModule,
     SwiperModule,
-    BrowserModule
   ],
   declarations: [ProductoPage]
 })

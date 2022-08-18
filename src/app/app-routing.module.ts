@@ -11,17 +11,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: '**',
-    redirectTo: ''
-  },  {
-    path: 'nueva-etiqueta',
-    loadChildren: () => import('./pages/nueva-etiqueta/nueva-etiqueta.module').then( m => m.NuevaEtiquetaPageModule)
+    path: ':tituloProductoUrl',
+    loadChildren: () => import('./pages/producto/producto.module').then( m => m.ProductoPageModule)
   },
   {
-    path: 'editar-etiqueta',
-    loadChildren: () => import('./pages/editar-etiqueta/editar-etiqueta.module').then( m => m.EditarEtiquetaPageModule)
+    path: '**',
+    redirectTo: '/'
   }
-
 
 
 ];

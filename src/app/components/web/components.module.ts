@@ -4,7 +4,6 @@ import { SwiperModule } from "swiper/angular";
 
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { SlideComponent } from './slide/slide.component';
-import { ProductoPage } from '../../pages/producto/producto.page';
 import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.component';
 import { IonicModule } from '@ionic/angular';
 import { TablaProductosComponent } from './tabla-productos/tabla-productos.component';
@@ -19,6 +18,7 @@ import { NuevaCategoriaPage } from 'src/app/pages/nueva-categoria/nueva-categori
 import { EditarEtiquetaPage } from 'src/app/pages/editar-etiqueta/editar-etiqueta.page';
 import { NuevaEtiquetaPage } from 'src/app/pages/nueva-etiqueta/nueva-etiqueta.page';
 import { TablaEtiquetasComponent } from './tabla-etiquetas/tabla-etiquetas.component';
+import { BuscadorComponent } from './buscador/buscador.component';
 
 
 
@@ -26,7 +26,6 @@ import { TablaEtiquetasComponent } from './tabla-etiquetas/tabla-etiquetas.compo
   declarations: [
     MenuPrincipalComponent,
     SlideComponent,
-    ProductoPage,
     AvatarSelectorComponent,
     TablaProductosComponent,
     NuevoProductoPage,
@@ -36,7 +35,8 @@ import { TablaEtiquetasComponent } from './tabla-etiquetas/tabla-etiquetas.compo
     EditarEtiquetaPage,
     NuevaEtiquetaPage,
     TablaCategoriasComponent,
-    TablaEtiquetasComponent
+    TablaEtiquetasComponent,
+    BuscadorComponent
   ],
   exports: [
     MenuPrincipalComponent,
@@ -44,7 +44,8 @@ import { TablaEtiquetasComponent } from './tabla-etiquetas/tabla-etiquetas.compo
     AvatarSelectorComponent,
     TablaProductosComponent,
     TablaCategoriasComponent,
-    TablaEtiquetasComponent
+    TablaEtiquetasComponent,
+    BuscadorComponent
   ],
   imports: [
     CommonModule,

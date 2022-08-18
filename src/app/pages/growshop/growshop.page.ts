@@ -1,4 +1,3 @@
-import { LowerCasePipe } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CuatroProductosComponent } from 'src/app/components/publicaciones/cuatro-productos/cuatro-productos.component';
@@ -26,6 +25,10 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
   etiquetas: any[] = [];
   categorias: any[] = [];
 
+  textoBuscar: string = '';
+
+  mostrarBuscadorCss: boolean = false;
+  mostrarProductosCss: boolean = true;
 
   constructor(private productosService: ProductosService) { }
 
@@ -33,8 +36,6 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   async ngOnInit() {
-
-
     this.productosSubscripcion = await this.productosService
       .getProductos()
       .subscribe(productos => {
@@ -240,6 +241,19 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
     });
 
     return productosTemporales;
+  }
+
+  buscar(textoBuscar) {
+
+    this.textoBuscar = textoBuscar;
+
+    if (this.textoBuscar != '') {
+      this.mostrarBuscadorCss = true;
+      this.mostrarProductosCss = false;
+    }else{
+      this.mostrarBuscadorCss = false;
+      this.mostrarProductosCss = true;
+    }
   }
 
 }

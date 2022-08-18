@@ -6,7 +6,7 @@
 
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12" size-lg="6" size-md="6" *ngFor="let producto of data | slice:0:6">
+      <ion-col size="12" size-lg="6" size-md="6" *ngFor="let producto of data | slice:0:6" (click)="verProducto(producto)">
         <ion-card class="ion-text-center">
           <ion-card-content>
             <ion-img [src]="producto.img[0]"></ion-img>

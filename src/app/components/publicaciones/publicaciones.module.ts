@@ -7,6 +7,7 @@ import { TresProductosComponent } from './tres-productos/tres-productos.componen
 import { UnProductoComponent } from './un-producto/un-producto.component';
 import { VideoComponent } from './video/video.component';
 import { SeisProductosComponent } from './seis-productos/seis-productos.component';
+import { ProductoPage } from 'src/app/pages/producto/producto.page';
 
 @NgModule({
   declarations: [

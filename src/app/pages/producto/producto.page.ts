@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ModalController, NavController } from '@ionic/angular';
+import { ProductosService } from 'src/app/services/productos.service';
 
-import { SwiperOptions } from 'swiper';
+
 
 @Component({
   selector: 'app-producto',
@@ -9,32 +11,57 @@ import { SwiperOptions } from 'swiper';
   styleUrls: ['./producto.page.scss'],
 })
 export class ProductoPage implements OnInit {
-  
-  config: SwiperOptions = {
-    slidesPerView: 1.5,
-    spaceBetween: 20,
-    centeredSlides: true
-  };
- 
-  @Input() nombre: string;
-  @Input() id: string;
 
-  constructor(private modalCtrl: ModalController) { }
+  producto: any = {
+    _id: "",
+    nombre: "",
+    url: "",
+    estado: true,
+    usuario: {
+      _id: "",
+      nombre: ""
+    },
+    precio: 0,
+    stock: 0,
+    categoria: {
+      _id: "",
+      nombre: ""
+    },
+    etiquetas: [
+      ""
+    ],
+    descripcion: "",
+    img: [
+      ""
+    ]
+  };
+
+  constructor(private modalCtrl: ModalController, private activateRoute: ActivatedRoute, private productosService: ProductosService, private navCtrl: NavController) { }
 
 
   ngOnInit() {
+    this.activateRoute.params.subscribe(async ({ tituloProductoUrl }) => {
+      await this.productosService.getProductoSlug(tituloProductoUrl)
+        .then(producto => {
+          this.producto = producto;
+          this.producto = this.producto.producto;
+          if (this.producto == undefined) {
+            this.navCtrl.navigateRoot('/');
+          }
+        });
+    });
   }
 
   salirSinArgumentos() {
     this.modalCtrl.dismiss();
   }
 
-  salirConArgumentos(){
+  salirConArgumentos() {
     this.modalCtrl.dismiss({
       nombre: 'disponible',
       precio: 200
     })
   }
 
-  
+
 }

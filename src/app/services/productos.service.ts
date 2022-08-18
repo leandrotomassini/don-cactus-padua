@@ -108,7 +108,7 @@ export class ProductosService implements OnInit {
     this.token = await this.storage.get('token') || null;
   }
 
- async editarProducto(producto: any) {
+  async editarProducto(producto: any) {
 
     await this.usuarioService.cargarToken();
 
@@ -125,6 +125,15 @@ export class ProductosService implements OnInit {
           }
         }, (err) => {
           resolve(err);
+        });
+    });
+  }
+
+  getProductoSlug(slug: string) {
+    return new Promise(resolve => {
+      this.http.get(`${URL}/productos/slug/${slug}`)
+        .subscribe(producto => {
+          resolve(producto);
         });
     });
   }

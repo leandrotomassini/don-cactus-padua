@@ -1,5 +1,14 @@
-<app-menu-principal></app-menu-principal>
+<app-menu-principal (onBuscar)="buscar($event)"></app-menu-principal>
 <ion-content>
-    <app-slide></app-slide>
- <ng-template appDynamicComponent></ng-template>
+    <!-- Mostrar productos página de inicio -->
+    <div
+        [ngClass]="{'contenedor-productos-inicio-activo':mostrarProductosCss,'contenedor-productos-inicio-culto':mostrarBuscadorCss}">
+        <app-slide></app-slide>
+        <ng-template appDynamicComponent></ng-template>
+    </div>
+
+    <!-- Resultado de búsquedas -->
+    <div [ngClass]="{'contenedor-productos-inicio-activo':mostrarBuscadorCss,'contenedor-productos-inicio-culto':mostrarProductosCss}">
+        <app-buscador [textoBuscar]="textoBuscar"></app-buscador>
+    </div>
 </ion-content>

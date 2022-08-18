@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+
+
 
 @Component({
   selector: 'app-menu-principal',
@@ -7,8 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPrincipalComponent implements OnInit {
 
+  @Output() onBuscar: EventEmitter<string> = new EventEmitter<string>();
+
+  textoBuscar: string = '';
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  async onSearchChange($event) {
+    let textoBuscar = $event.detail.value;
+    this.onBuscar.emit(textoBuscar);
+  }
+
 
 }
