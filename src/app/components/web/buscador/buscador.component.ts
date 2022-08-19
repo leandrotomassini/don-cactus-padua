@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 
 import { ProductosService } from 'src/app/services/productos.service';
@@ -14,7 +15,7 @@ export class BuscadorComponent implements OnInit {
   productosSubscripcion: Subscription;
   productos: any;
 
-  constructor(private productosService: ProductosService) { }
+  constructor(private productosService: ProductosService, private navCtrl: NavController) { }
 
   async ngOnInit() {
     this.productosSubscripcion = await this.productosService
@@ -24,5 +25,8 @@ export class BuscadorComponent implements OnInit {
       });
   }
 
-  
+  verProducto(urlProducto) {
+    let url = '/' + urlProducto;
+    this.navCtrl.navigateRoot(url);
+  }
 }

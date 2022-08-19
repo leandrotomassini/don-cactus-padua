@@ -1,5 +1,5 @@
 <ion-list>
-  <ion-item *ngFor="let producto of productos | filtroPipe:textoBuscar:'nombre'">
+  <ion-item *ngFor="let producto of productos | filtroPipe:textoBuscar:'nombre'" (click)="verProducto(producto.url)">
     <img [src]="producto.img[0]" width="200px" height="200px">
     <ion-label>{{producto.nombre}}</ion-label>
   </ion-item>

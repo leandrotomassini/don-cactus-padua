@@ -19,6 +19,7 @@ import { EditarEtiquetaPage } from 'src/app/pages/editar-etiqueta/editar-etiquet
 import { NuevaEtiquetaPage } from 'src/app/pages/nueva-etiqueta/nueva-etiqueta.page';
 import { TablaEtiquetasComponent } from './tabla-etiquetas/tabla-etiquetas.component';
 import { BuscadorComponent } from './buscador/buscador.component';
+import { ProductoSlideComponent } from './producto-slide/producto-slide.component';
 
 
 
@@ -36,7 +37,8 @@ import { BuscadorComponent } from './buscador/buscador.component';
     NuevaEtiquetaPage,
     TablaCategoriasComponent,
     TablaEtiquetasComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    ProductoSlideComponent
   ],
   exports: [
     MenuPrincipalComponent,
@@ -45,7 +47,8 @@ import { BuscadorComponent } from './buscador/buscador.component';
     TablaProductosComponent,
     TablaCategoriasComponent,
     TablaEtiquetasComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    ProductoSlideComponent
   ],
   imports: [
     CommonModule,
