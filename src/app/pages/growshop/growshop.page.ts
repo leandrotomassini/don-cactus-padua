@@ -22,6 +22,8 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
   productosSubscripcion: Subscription;
   productos: any;
 
+  numeroPar = 0;
+
   etiquetas: any[] = [];
   categorias: any[] = [];
 
@@ -50,10 +52,13 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
 
   mostrarProductos() {
 
-    this.obtenerEtiquetas();
-    this.obtenerCategorias();
-    this.mostrarProductosEtiquetas();
-    this.mostrarProductosCategorias();
+    if (this.numeroPar % 2 == 0) {
+      this.obtenerEtiquetas();
+      this.obtenerCategorias();
+      this.mostrarProductosEtiquetas();
+      this.mostrarProductosCategorias();
+    }
+    this.numeroPar++;
   }
 
   obtenerEtiquetas() {
@@ -250,7 +255,7 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
     if (this.textoBuscar != '') {
       this.mostrarBuscadorCss = true;
       this.mostrarProductosCss = false;
-    }else{
+    } else {
       this.mostrarBuscadorCss = false;
       this.mostrarProductosCss = true;
     }

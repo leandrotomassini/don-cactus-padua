@@ -58,4 +58,27 @@ export class CategoriasService {
     this.wsService.emit('get-categorias-borradas');
     return this.wsService.listen('categorias-borradas');
   }
+
+  async crearCategoria(categoria){
+
+    await this.usuarioService.cargarToken();
+
+
+    const headers = new HttpHeaders({
+      'x-token': this.usuarioService.token
+    });
+    return new Promise(resolve => {
+      this.http.post(`${URL}/categorias`, categoria, { headers })
+        .subscribe(resp => {
+          if (resp['ok']) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        }, (err) => {
+          resolve(err);
+        });
+    });
+
+  }
 }

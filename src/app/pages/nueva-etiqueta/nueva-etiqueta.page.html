@@ -1,9 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>nueva-etiqueta</ion-title>
+    <ion-title *ngIf="nuevaEtiquetaFormulario.value.nombre == ''">Nueva etiqueta</ion-title>
+    <ion-title *ngIf="!nuevaEtiquetaFormulario.value.nombre == ''">{{nuevaEtiquetaFormulario.value.nombre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <form [formGroup]="nuevaEtiquetaFormulario">
 
+
+      <ion-item>
+        <ion-label>Nombre de la etiqueta:</ion-label>
+        <ion-input formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-label class="mensaje-error" *ngIf="campoEsValido('nombre')">
+        Debe de tener por lo menos cinco caracteres.
+      </ion-label>
+      <ion-item>
+        <ion-label>Título para vender:</ion-label>
+        <ion-input formControlName="titulo"></ion-input>
+      </ion-item>
+      <ion-label class="mensaje-error" *ngIf="campoEsValido('nombre')">
+        Debe de tener por lo menos cinco caracteres.
+      </ion-label>
+
+      <ion-button (click)="guardarEtiqueta()" expand="block" fill="clear" shape="round">
+        Guardar nueva etiqueta
+      </ion-button>
+    </form>
+  </ion-card>
 </ion-content>

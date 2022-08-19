@@ -26,6 +26,7 @@ export class NuevoProductoPage implements OnInit, OnDestroy {
 
   nuevoProductoFormulario: FormGroup = this.fb.group({
     nombre: ['', [Validators.required, Validators.minLength(5)]],
+    url: ['', [Validators.required, Validators.minLength(5)]],
     precio: [0, [Validators.required, Validators.minLength(8)]],
     stock: [0, [Validators.required, Validators.minLength(3)]],
     img: ['', [Validators.required, Validators.minLength(3)]],
@@ -54,6 +55,7 @@ export class NuevoProductoPage implements OnInit, OnDestroy {
   guardarProducto() {
     this.producto = this.nuevoProductoFormulario.value;
     this.producto.img = this.fotos;
+    this.producto.url = this.producto.url.replace(" ", "-");
     this.productosService.guardarProducto(this.producto).then(console.log).catch(console.log);
     this.modalController.dismiss();
   }

@@ -39,7 +39,7 @@
       <ion-grid>
         <ion-row *ngFor="let categoria of categorias | filtroPipe:textoBuscar:'nombre'" class="producto">
           <ion-col>
-            <ion-img [src]="categoria.img"></ion-img>
+            <img [src]="categoria.img" class="logo-categoria" />
           </ion-col>
           <ion-col>
             <ion-label>{{categoria.nombre}}</ion-label>

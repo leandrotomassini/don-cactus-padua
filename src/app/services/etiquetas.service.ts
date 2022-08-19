@@ -12,7 +12,7 @@ const URL = environment.url;
 })
 export class EtiquetasService {
 
-  constructor(private http: HttpClient,  private wsService: WebsocketService, private usuarioService: UsuarioService) { }
+  constructor(private http: HttpClient, private wsService: WebsocketService, private usuarioService: UsuarioService) { }
 
   obtenerEtiquetas() {
     return new Promise<boolean>(resolve => {
@@ -59,4 +59,27 @@ export class EtiquetasService {
     return this.wsService.listen('etiquetas-borradas');
   }
 
+
+  async crearEtiqueta(etiqueta) {
+
+    await this.usuarioService.cargarToken();  
+
+    const headers = new HttpHeaders({
+      'x-token': this.usuarioService.token
+    });
+
+    return new Promise(resolve => {
+      this.http.post(`${URL}/etiquetas`, etiqueta, { headers })
+        .subscribe(resp => {
+          if (resp['ok']) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        }, (err) => {
+          resolve(err);
+        });
+    });
+
+  }
 }

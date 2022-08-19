@@ -9,6 +9,7 @@
   <ion-card>
     <form [formGroup]="nuevoProductoFormulario">
 
+      
       <ion-item>
         <ion-label>Nombre del producto:</ion-label>
         <ion-input formControlName="nombre"></ion-input>
@@ -16,7 +17,13 @@
       <ion-label class="mensaje-error" *ngIf="campoEsValido('nombre')">
         Debe de tener por lo menos cinco caracteres.
       </ion-label>
-
+      <ion-item>
+        <ion-label>URL para el producto:</ion-label>
+        <ion-input formControlName="url"></ion-input>
+      </ion-item>
+      <ion-label class="mensaje-error" *ngIf="campoEsValido('nombre')">
+        Debe de tener por lo menos cinco caracteres.
+      </ion-label>
       <ion-item>
         <ion-input formControlName="img" placeholder="Pegue aquí la URL de la foto" [(ngModel)]="fotoInput"></ion-input>
         <ion-button (click)="guardarFoto()" expand="block" fill="clear" shape="round">
@@ -69,7 +76,7 @@
       </ion-item>
 
       <ion-button (click)="guardarProducto()" expand="block" fill="clear" shape="round">
-        Guardar cambios
+        Guardar nuevo producto
       </ion-button>
     </form>
   </ion-card>
