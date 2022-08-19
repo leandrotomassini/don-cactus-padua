@@ -11,9 +11,8 @@ export class PedidosService {
    
   }
 
-  async comprarProductos(productos) {
-
-    
+  comprarProductos(productos) {
+    console.log(productos)
   }
 
 

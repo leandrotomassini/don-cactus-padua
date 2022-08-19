@@ -19,15 +19,18 @@ const routes: Routes = [
       },
       {
         path: 'carrito',
-        loadChildren: () => import('../carrito/carrito.module').then(m => m.CarritoPageModule)
+        loadChildren: () => import('../carrito/carrito.module').then(m => m.CarritoPageModule),
+        canLoad: [UsuarioGuard]
       },
       {
         path: 'categorias',
-        loadChildren: () => import('../categorias/categorias.module').then(m => m.CategoriasPageModule)
+        loadChildren: () => import('../categorias/categorias.module').then(m => m.CategoriasPageModule),
+        canLoad: [UsuarioGuard]
       }, // TODO: Proteger ruta panel-control con un Guard
       {
         path: 'panel-control',
-        loadChildren: () => import('../panel-control/panel-control.module').then( m => m.PanelControlPageModule)
+        loadChildren: () => import('../panel-control/panel-control.module').then( m => m.PanelControlPageModule),
+        canLoad: [UsuarioGuard]
       },
       {
         path: '',

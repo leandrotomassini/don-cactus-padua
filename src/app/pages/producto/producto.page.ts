@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
 import { PedidosService } from 'src/app/services/pedidos.service';
 import { ProductosService } from 'src/app/services/productos.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 
 
@@ -37,7 +38,7 @@ export class ProductoPage implements OnInit {
     ]
   };
 
-  constructor(private modalCtrl: ModalController, private activateRoute: ActivatedRoute, private productosService: ProductosService, private navCtrl: NavController, private pedidosService: PedidosService) { }
+  constructor(private modalCtrl: ModalController, private activateRoute: ActivatedRoute, private productosService: ProductosService, private navCtrl: NavController, private pedidosService: PedidosService, private usuarioService: UsuarioService) { }
 
 
   ngOnInit() {
@@ -65,7 +66,15 @@ export class ProductoPage implements OnInit {
   }
 
   comprar() {
-    this.pedidosService.comprarProductos(this.producto);
+
+    this.usuarioService.cargarToken();
+
+    if (this.usuarioService.usuario.nombre == undefined) {
+      console.log(this.producto.url);
+    }
+  //  Guardar en local storage url
+  // Iniciar sesion
+  // volver al producto
   }
 
 }
