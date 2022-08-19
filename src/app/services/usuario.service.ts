@@ -112,7 +112,13 @@ export class UsuarioService {
       .pipe(
         tap(async (resp: any) => {
           await this.guardarToken(resp.token);
-          this.navCtrl.navigateRoot('/cuenta');
+          let url = await this.storage.get('url') || null;
+          if (url != null) {
+            this.navCtrl.navigateRoot('/' + url);
+          } else {
+            this.navCtrl.navigateRoot('/cuenta');
+          }
+
         })
       )
   }

@@ -1,44 +1,71 @@
 <app-menu-principal></app-menu-principal>
 
 <ion-content>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12" size-md="6">
-        <ion-card>
-          <ion-card-content>
-            <app-producto-slide [producto]="producto" *ngIf="producto.nombre != ''"></app-producto-slide>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" size-md="6">
-        <ion-card>
-          <ion-card-content>
-            <ion-grid fixed>
-              <ion-row>
-                <ion-col size="12">
-                  <h1>{{producto.nombre | titlecase }}</h1>
-                </ion-col>
-                <ion-col size="12">
-                  <h1>$ {{producto.precio | number}}</h1>
-                </ion-col>
-                <ion-col size="12">
-                  <ion-button (click)="comprar()">
-                    Comprar
-                  </ion-button>
-                  <ion-button color="danger">
-                    Agregar al carrito
-                    <ion-icon name="cart-outline"></ion-icon>
-                  </ion-button>
-                </ion-col>
-                <ion-col size="12">
-                  <div [innerHTML]="producto.descripcion"></div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  
+<ion-list *ngIf="producto.nombre == ''">
+  <ion-title>Iniciando sesión aguarde un instante por favor...</ion-title>
+  <ion-list-header>
+    <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+  </ion-list-header>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+    </ion-thumbnail>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+
+  <div *ngIf="producto.nombre != ''">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12" size-md="6">
+          <ion-card>
+            <ion-card-content>
+              <app-producto-slide [producto]="producto" *ngIf="producto.nombre != ''"></app-producto-slide>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" size-md="6">
+          <ion-card>
+            <ion-card-content>
+              <ion-grid fixed>
+                <ion-row>
+                  <ion-col size="12">
+                    <h1>{{producto.nombre | titlecase }}</h1>
+                  </ion-col>
+                  <ion-col size="12">
+                    <h1>$ {{producto.precio | number}}</h1>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-button (click)="comprar()">
+                      Comprar
+                    </ion-button>
+                    <ion-button color="danger">
+                      Agregar al carrito
+                      <ion-icon name="cart-outline"></ion-icon>
+                    </ion-button>
+                  </ion-col>
+                  <ion-col size="12">
+                    <div [innerHTML]="producto.descripcion"></div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
 </ion-content>

@@ -4,6 +4,7 @@ import { ModalController, NavController } from '@ionic/angular';
 import { PedidosService } from 'src/app/services/pedidos.service';
 import { ProductosService } from 'src/app/services/productos.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { Storage } from '@ionic/storage-angular';
 
 
 
@@ -38,7 +39,9 @@ export class ProductoPage implements OnInit {
     ]
   };
 
-  constructor(private modalCtrl: ModalController, private activateRoute: ActivatedRoute, private productosService: ProductosService, private navCtrl: NavController, private pedidosService: PedidosService, private usuarioService: UsuarioService) { }
+  constructor(private modalCtrl: ModalController, private activateRoute: ActivatedRoute, private productosService: ProductosService, private navCtrl: NavController, private pedidosService: PedidosService, private usuarioService: UsuarioService, private storage: Storage) {
+    this.storage.create();
+  }
 
 
   ngOnInit() {
@@ -65,16 +68,18 @@ export class ProductoPage implements OnInit {
     })
   }
 
-  comprar() {
+  async comprar() {
 
-    this.usuarioService.cargarToken();
+    await this.usuarioService.cargarToken();
+    await this.usuarioService.validaToken();
 
     if (this.usuarioService.usuario.nombre == undefined) {
-      console.log(this.producto.url);
+      await this.storage.set('url', this.producto.url);
+      this.navCtrl.navigateRoot('/login');
+    }else{
+      console.log(this.producto)
     }
-  //  Guardar en local storage url
-  // Iniciar sesion
-  // volver al producto
+
   }
 
 }
