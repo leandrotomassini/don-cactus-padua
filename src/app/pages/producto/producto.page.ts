@@ -5,6 +5,7 @@ import { PedidosService } from 'src/app/services/pedidos.service';
 import { ProductosService } from 'src/app/services/productos.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Storage } from '@ionic/storage-angular';
+import { CarritoService } from 'src/app/services/carrito.service';
 
 
 
@@ -39,7 +40,7 @@ export class ProductoPage implements OnInit {
     ]
   };
 
-  constructor(private modalCtrl: ModalController, private activateRoute: ActivatedRoute, private productosService: ProductosService, private navCtrl: NavController, private pedidosService: PedidosService, private usuarioService: UsuarioService, private storage: Storage) {
+  constructor(private modalCtrl: ModalController, private activateRoute: ActivatedRoute, private productosService: ProductosService, private navCtrl: NavController, private pedidosService: PedidosService, private usuarioService: UsuarioService, private storage: Storage, private carritoService: CarritoService) {
     this.storage.create();
   }
 
@@ -76,10 +77,9 @@ export class ProductoPage implements OnInit {
     if (this.usuarioService.usuario.nombre == undefined) {
       await this.storage.set('url', this.producto.url);
       this.navCtrl.navigateRoot('/login');
-    }else{
-      console.log(this.producto)
+    } else {
+      await this.carritoService.agregarProductoCarrito(this.producto._id).then(console.log).catch(console.log);
     }
-
   }
 
 }
