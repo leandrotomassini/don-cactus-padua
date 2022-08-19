@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
+import { PedidosService } from 'src/app/services/pedidos.service';
 import { ProductosService } from 'src/app/services/productos.service';
 
 
@@ -36,7 +37,7 @@ export class ProductoPage implements OnInit {
     ]
   };
 
-  constructor(private modalCtrl: ModalController, private activateRoute: ActivatedRoute, private productosService: ProductosService, private navCtrl: NavController) { }
+  constructor(private modalCtrl: ModalController, private activateRoute: ActivatedRoute, private productosService: ProductosService, private navCtrl: NavController, private pedidosService: PedidosService) { }
 
 
   ngOnInit() {
@@ -63,5 +64,8 @@ export class ProductoPage implements OnInit {
     })
   }
 
+  comprar() {
+    this.pedidosService.comprarProductos(this.producto);
+  }
 
 }

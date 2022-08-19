@@ -9,7 +9,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class TabsPage implements OnInit {
 
   rol: string = '';
-  admin: boolean = false;
+  // admin: boolean = false;
 
   constructor(private usuarioService: UsuarioService) {
 
@@ -17,14 +17,14 @@ export class TabsPage implements OnInit {
 
   async ngOnInit() {
 
-    await this.usuarioService.validaToken();
-    this.rol = await this.usuarioService.usuario.rol;
+    // await this.usuarioService.validaToken();
+    // this.rol = await this.usuarioService.usuario.rol;
 
-    if (this.rol == 'ADMINISTRADOR') {
-      this.admin = true;
-    } else {
-      this.admin = false;
-    }
+    // if (this.rol == 'ADMINISTRADOR') {
+    //   this.admin = true;
+    // } else {
+    //   this.admin = false;
+    // }
   }
 
 }
