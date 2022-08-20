@@ -46,6 +46,6 @@ export class CarritoPage implements OnInit {
       if( link!= undefined){
         window.open(link, "_blank"); 
       }
-    }).catch(console.log);
+    }).catch();
   }
 }

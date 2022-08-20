@@ -81,12 +81,13 @@ export class CarritoService {
   }
 
   async pagar(productos) {
+
     await this.usuarioService.cargarToken();
 
     const data = {
       "productos": productos
     }
-
+    
     const headers = new HttpHeaders({
       'x-token': this.usuarioService.token
     });
