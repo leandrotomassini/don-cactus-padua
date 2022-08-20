@@ -20,6 +20,7 @@ import { NuevaEtiquetaPage } from 'src/app/pages/nueva-etiqueta/nueva-etiqueta.p
 import { TablaEtiquetasComponent } from './tabla-etiquetas/tabla-etiquetas.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { ProductoSlideComponent } from './producto-slide/producto-slide.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -58,6 +59,7 @@ import { ProductoSlideComponent } from './producto-slide/producto-slide.componen
     FormsModule,
     ReactiveFormsModule,
     NgxEditorModule,
+    RouterModule
   ]
 })
 export class ComponentsModule { }

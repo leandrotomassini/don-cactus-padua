@@ -29,7 +29,7 @@ export class CarritoService {
   }
 
   async agregarProductoCarrito(producto) {
- 
+
     await this.usuarioService.cargarToken();
 
     const data = {
@@ -43,6 +43,28 @@ export class CarritoService {
       this.http.post(`${URL}/carrito`, data, { headers })
         .subscribe(resp => {
           if (resp['ok']) {
+            resolve(resp);
+          } else {
+            resolve(false);
+          }
+        }, (err) => {
+          resolve(err);
+        });
+    });
+  }
+
+  async borrarProductoCarrito(idcarrito) {
+
+    await this.usuarioService.cargarToken();
+
+    const headers = new HttpHeaders({
+      'x-token': this.usuarioService.token
+    });
+
+    return new Promise(resolve => {
+      this.http.delete(`${URL}/carrito/${idcarrito}`, { headers })
+        .subscribe(async resp => {
+          if (resp['ok']) {
             resolve(true);
           } else {
             resolve(false);
@@ -53,9 +75,32 @@ export class CarritoService {
     });
   }
 
-  borrarProductoCarrito() {
-
+  obtenerProductosCarrito(idUsuario) {
+    this.wsService.emit('get-productos-carrito', idUsuario);
+    return this.wsService.listen('productos-carrito');
   }
 
+  async pagar(productos) {
+    await this.usuarioService.cargarToken();
 
+    const data = {
+      "productos": productos
+    }
+
+    const headers = new HttpHeaders({
+      'x-token': this.usuarioService.token
+    });
+    return new Promise(resolve => {
+      this.http.post(`${URL}/pedidos/linkPago`, data, { headers })
+        .subscribe(resp => {
+          if (resp['ok']) {
+            resolve(resp);
+          } else {
+            resolve(false);
+          }
+        }, (err) => {
+          resolve(err);
+        });
+    });
+  }
 }

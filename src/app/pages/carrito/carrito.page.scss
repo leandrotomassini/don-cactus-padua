@@ -1,3 +1,12 @@
 ion-content {
-    --background: #EBEBEB;
-  }
+  --background: #EBEBEB;
+}
+
+
+.icono-borrar {
+  cursor: pointer;
+  margin-left: 1em;
+  margin-top: 0.5em;
+  font-size: 1.5em;
+  color: red;
+}
