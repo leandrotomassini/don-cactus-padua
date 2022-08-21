@@ -1,6 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 
-
+import { ProductosService } from 'src/app/services/productos.service';
 
 
 @Component({
@@ -8,20 +10,47 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   templateUrl: './menu-principal.component.html',
   styleUrls: ['./menu-principal.component.scss'],
 })
-export class MenuPrincipalComponent implements OnInit {
+export class MenuPrincipalComponent implements OnInit, OnDestroy {
 
-  @Output() onBuscar: EventEmitter<string> = new EventEmitter<string>();
 
-  textoBuscar: string = '';
+  productosSubscripcion: Subscription;
+  productos: any;
 
-  constructor() { }
+  mostrarBuscadorCss: boolean = false;
+  mostrarProductosCss: boolean = true;
 
-  ngOnInit() { }
+  textoBuscar: any;
+
+
+  constructor(private productosService: ProductosService, private navCtrl: NavController) { }
+
+  async ngOnInit() {
+    this.productosSubscripcion = await this.productosService
+      .getProductos()
+      .subscribe(productos => {
+        this.productos = productos;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.productosSubscripcion.unsubscribe();
+  }
 
   async onSearchChange($event) {
     let textoBuscar = $event.detail.value;
-    this.onBuscar.emit(textoBuscar);
+    this.textoBuscar = textoBuscar;
+
+    if (textoBuscar != '') {
+      this.mostrarBuscadorCss = true;
+      this.mostrarProductosCss = false;
+    } else {
+      this.mostrarBuscadorCss = false;
+      this.mostrarProductosCss = true;
+    }
   }
 
+  verProducto(productoUrl) {
+    this.navCtrl.navigateRoot(`/${productoUrl}`);
+  }
 
 }

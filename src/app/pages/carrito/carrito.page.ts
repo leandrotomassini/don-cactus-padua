@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 import { CarritoService } from 'src/app/services/carrito.service';
@@ -9,7 +9,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './carrito.page.html',
   styleUrls: ['./carrito.page.scss'],
 })
-export class CarritoPage implements OnInit {
+export class CarritoPage implements OnInit, OnDestroy {
 
   productos: any;
   productosSubscripcion: Subscription;
@@ -28,6 +28,9 @@ export class CarritoPage implements OnInit {
       });
   }
 
+  ngOnDestroy(): void {
+    this.productosSubscripcion.unsubscribe();
+  }
   calcularTotal() {
     this.total = 0;
 

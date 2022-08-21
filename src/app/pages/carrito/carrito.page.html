@@ -1,5 +1,6 @@
 <app-menu-principal></app-menu-principal>
 <ion-content>
+
     <ion-card>
         <ion-card-header>
             <ion-card-title>Carrito de compras</ion-card-title>
@@ -9,8 +10,8 @@
                 <img [src]="producto.producto.img[0]" width="50" height="50">
                 <ion-label>{{producto.producto.nombre}}</ion-label>
                 <ion-label>$ {{producto.producto.precio | number}}</ion-label>
-                <ion-icon name="trash-outline" class="icono-borrar"
-                (click)="borrarProducto(producto._id)"></ion-icon>
+                <ion-icon name="trash-outline" class="icono-borrar" (click)="borrarProducto(producto._id)">
+                </ion-icon>
             </ion-item>
             <ion-item class="ion-text-center">
                 <ion-label>Total: $ {{total | number}}</ion-label>

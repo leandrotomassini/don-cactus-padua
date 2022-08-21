@@ -27,10 +27,8 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
   etiquetas: any[] = [];
   categorias: any[] = [];
 
-  textoBuscar: string = '';
 
-  mostrarBuscadorCss: boolean = false;
-  mostrarProductosCss: boolean = true;
+
 
   constructor(private productosService: ProductosService) { }
 
@@ -248,18 +246,7 @@ export class GrowshopPage implements OnInit, OnDestroy, AfterViewInit {
     return productosTemporales;
   }
 
-  buscar(textoBuscar) {
 
-    this.textoBuscar = textoBuscar;
-
-    if (this.textoBuscar != '') {
-      this.mostrarBuscadorCss = true;
-      this.mostrarProductosCss = false;
-    } else {
-      this.mostrarBuscadorCss = false;
-      this.mostrarProductosCss = true;
-    }
-  }
 
 }
 

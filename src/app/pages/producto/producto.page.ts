@@ -78,7 +78,9 @@ export class ProductoPage implements OnInit {
       await this.storage.set('url', this.producto.url);
       this.navCtrl.navigateRoot('/login');
     } else {
-      await this.carritoService.agregarProductoCarrito(this.producto._id).then(console.log).catch(console.log);
+      await this.carritoService.agregarProductoCarrito(this.producto._id).then(resp => {
+        this.navCtrl.navigateRoot('/carrito');
+      }).catch(console.log);
     }
 
   }
