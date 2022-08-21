@@ -30,7 +30,7 @@ export class MenuPrincipalComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
 
-    await this.usuarioService.validaToken();
+    // await this.usuarioService.validaToken();
 
     this.productosSubscripcion = await this.productosService
       .getProductos()

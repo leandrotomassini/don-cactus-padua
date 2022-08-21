@@ -85,4 +85,15 @@ export class ProductoPage implements OnInit {
 
   }
 
+  async agregarAlCarrito() {
+    await this.usuarioService.cargarToken();
+    await this.usuarioService.validaToken();
+
+    if (this.usuarioService.usuario.nombre == undefined) {
+      await this.storage.set('url', this.producto.url);
+      this.navCtrl.navigateRoot('/login');
+    } else {
+      await this.carritoService.agregarProductoCarrito(this.producto._id).then().catch();
+    }
+  }
 }
