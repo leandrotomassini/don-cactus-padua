@@ -29,7 +29,7 @@ ion-header ion-toolbar {
     display: block;
 }
 
-.resultado-busqueda{
+.resultado-busqueda {
     position: fixed;
     width: 34%;
     margin-left: 23%;
@@ -37,21 +37,31 @@ ion-header ion-toolbar {
     z-index: 1;
 }
 
-.foto-item{
+.foto-item {
     padding: 10px;
 }
 
-.item-resultado-busqueda{
+.item-resultado-busqueda {
     font-weight: bold;
 }
-.item-resultado-busqueda:hover{
+
+.item-resultado-busqueda:hover {
     --background: #6ae56a;
     animation-duration: 6s
 }
 
-.precio{
+.precio {
     font-weight: bold;
 }
+
+.notificacion{
+    background-color: #278bf2;
+    border-radius: 100%;
+    text-align: center;
+    padding: 3px;
+    font-size: 12px;
+}
+
 @media (max-width: 768px) {
 
     .opciones-principales-menu,

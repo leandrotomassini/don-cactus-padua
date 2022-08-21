@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { CarritoService } from 'src/app/services/carrito.service';
 
 import { ProductosService } from 'src/app/services/productos.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 
 @Component({
@@ -14,26 +16,40 @@ export class MenuPrincipalComponent implements OnInit, OnDestroy {
 
 
   productosSubscripcion: Subscription;
+  carritoSubscripcion: Subscription;
   productos: any;
+  carrito: any;
 
   mostrarBuscadorCss: boolean = false;
   mostrarProductosCss: boolean = true;
 
   textoBuscar: any;
+  notificacion: boolean = false;
 
-
-  constructor(private productosService: ProductosService, private navCtrl: NavController) { }
+  constructor(private productosService: ProductosService, private navCtrl: NavController, private carritoService: CarritoService, private usuarioService: UsuarioService) { }
 
   async ngOnInit() {
+
+    await this.usuarioService.validaToken();
+
     this.productosSubscripcion = await this.productosService
       .getProductos()
       .subscribe(productos => {
         this.productos = productos;
       });
+
+    this.carritoSubscripcion = await this.carritoService
+      .obtenerNotificacionProductosCarrito(this.usuarioService.usuario.uid)
+      .subscribe(productos => {
+        this.carrito = productos;
+        this.mostrarNotificacionCarrito();
+      });
+
   }
 
   ngOnDestroy(): void {
     this.productosSubscripcion.unsubscribe();
+    this.carritoSubscripcion.unsubscribe();
   }
 
   async onSearchChange($event) {
@@ -53,4 +69,11 @@ export class MenuPrincipalComponent implements OnInit, OnDestroy {
     this.navCtrl.navigateRoot(`/${productoUrl}`);
   }
 
+  mostrarNotificacionCarrito() {
+    if (this.carrito.length > 0) {
+      this.notificacion = true;
+    } else {
+      this.notificacion = false;
+    }
+  }
 }

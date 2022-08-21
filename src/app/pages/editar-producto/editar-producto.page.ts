@@ -67,7 +67,7 @@ export class EditarProductoPage implements OnInit, OnDestroy {
     this.editarProductoFormulario.value._id = this.productoEditar._id;
     this.producto = this.editarProductoFormulario.value;
     this.producto.img = this.fotos;
-    this.productosService.editarProducto(this.producto).then().catch(console.log);
+    this.productosService.editarProducto(this.producto).then().catch();
     this.modalController.dismiss();
   }
 

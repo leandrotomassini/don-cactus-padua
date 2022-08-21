@@ -15,7 +15,9 @@ export class FiltroPipe implements PipeTransform {
       return arreglo;
     }
 
-    texto = texto.toLocaleLowerCase();
+    if(texto != undefined){
+      texto = texto.toLocaleLowerCase();
+    }
 
     return arreglo.filter(
       item => item[columna].toLocaleLowerCase().includes(texto)

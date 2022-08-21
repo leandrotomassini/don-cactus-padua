@@ -12,7 +12,7 @@ export class PedidosService {
   }
 
   comprarProductos(productos) {
-    console.log(productos)
+    
   }
 
 

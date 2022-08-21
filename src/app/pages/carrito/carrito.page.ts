@@ -31,6 +31,7 @@ export class CarritoPage implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.productosSubscripcion.unsubscribe();
   }
+  
   calcularTotal() {
     this.total = 0;
 

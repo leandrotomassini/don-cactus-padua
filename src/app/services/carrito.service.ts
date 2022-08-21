@@ -79,6 +79,11 @@ export class CarritoService {
     this.wsService.emit('get-productos-carrito', idUsuario);
     return this.wsService.listen('productos-carrito');
   }
+ 
+  obtenerNotificacionProductosCarrito(idUsuario) {
+    this.wsService.emit('get-productos-carrito-notificacion', idUsuario);
+    return this.wsService.listen('productos-carrito-notificacion');
+  }
 
   async pagar(productos) {
 

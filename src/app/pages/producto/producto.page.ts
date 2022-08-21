@@ -80,7 +80,7 @@ export class ProductoPage implements OnInit {
     } else {
       await this.carritoService.agregarProductoCarrito(this.producto._id).then(resp => {
         this.navCtrl.navigateRoot('/carrito');
-      }).catch(console.log);
+      }).catch();
     }
 
   }

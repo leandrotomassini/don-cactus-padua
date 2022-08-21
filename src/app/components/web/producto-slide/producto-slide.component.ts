@@ -22,7 +22,7 @@ export class ProductoSlideComponent implements AfterContentChecked, OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.producto);
+    
   }
 
   ngAfterContentChecked(): void {
