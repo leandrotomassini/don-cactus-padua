@@ -85,17 +85,23 @@ export class CarritoService {
     return this.wsService.listen('productos-carrito-notificacion');
   }
 
-  async pagar(productos) {
+  async pagar(productos, pedidoId) {
 
     await this.usuarioService.cargarToken();
 
     const data = {
-      "productos": productos
+      "productos": productos,
+      "pedidoId": pedidoId
     }
     
     const headers = new HttpHeaders({
       'x-token': this.usuarioService.token
     });
+
+
+    // Crear un pedido nuevo
+    
+
     return new Promise(resolve => {
       this.http.post(`${URL}/pedidos/linkPago`, data, { headers })
         .subscribe(resp => {
