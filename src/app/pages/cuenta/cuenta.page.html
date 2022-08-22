@@ -1,13 +1,41 @@
 <app-menu-principal></app-menu-principal>
 
 <ion-content>
-<h1>Mi cuenta</h1>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col size="6">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Mi cuenta</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-item>
+                            <ion-card-subtitle>{{ usuario.correo }}</ion-card-subtitle>
+                        </ion-item>
+                        <ion-item>
+                            <ion-card-subtitle>{{ usuario.nombre }}</ion-card-subtitle>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label (click)="salir()">Salir</ion-label>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="6">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Mis Pedidos</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-list>
+                            <ion-item *ngFor="let pedido of pedidos">
+                                <ion-label>{{pedido.payment_type}}</ion-label>
+                            </ion-item>
+                        </ion-list>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
 
-<ion-item>
-    <ion-title>{{ usuario.nombre }}</ion-title>
-    <ion-card-subtitle>{{ usuario.correo }}</ion-card-subtitle>
-    <ion-card-content>
-        <ion-label (click)="salir()">Salir</ion-label>
-    </ion-card-content>
-</ion-item>
+        </ion-row>
+    </ion-grid>
 </ion-content>

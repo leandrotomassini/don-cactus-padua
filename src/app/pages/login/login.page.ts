@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { IonSlides, NavController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
+
 import { Usuario } from 'src/app/interfaces/interfaces';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 
@@ -16,7 +17,6 @@ declare const google: any;
 })
 export class LoginPage implements OnInit, AfterViewInit {
 
-  @ViewChild('slidePrincipal', { static: false }) slides: IonSlides;
   @ViewChild('googleBtn') googleBtn: ElementRef;
 
   loginUser = {
@@ -63,9 +63,6 @@ export class LoginPage implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
-  ionViewDidEnter() {
-    this.slides.lockSwipes(true);
-  }
 
   async login(fLogin: NgForm) {
 
@@ -98,16 +95,5 @@ export class LoginPage implements OnInit, AfterViewInit {
 
   }
 
-  mostrarRegistro() {
-    this.slides.lockSwipes(false);
-    this.slides.slideTo(0);
-    this.slides.lockSwipes(true);
-  }
-
-  mostrarLogin() {
-    this.slides.lockSwipes(false);
-    this.slides.slideTo(1);
-    this.slides.lockSwipes(true);
-  }
 
 }

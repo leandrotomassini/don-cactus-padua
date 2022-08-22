@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 import { UsuarioService } from './usuario.service';
+import { WebsocketService } from './websocket.service';
 
 const URL = environment.url;
 
@@ -13,7 +14,7 @@ export class PedidosService {
 
   productosCarrito: any;
 
-  constructor(private usuarioService: UsuarioService, private http: HttpClient) { }
+  constructor(private usuarioService: UsuarioService, private http: HttpClient, private wsService: WebsocketService) { }
 
   async crearPedido(productos) {
 
@@ -52,5 +53,11 @@ export class PedidosService {
           resolve(err);
         });
     });
+  }
+
+
+  getPedidos() {
+    this.wsService.emit('get-pedidos');
+    return this.wsService.listen('pedidos');
   }
 }

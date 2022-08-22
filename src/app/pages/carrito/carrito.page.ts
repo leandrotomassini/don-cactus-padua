@@ -58,7 +58,7 @@ export class CarritoPage implements OnInit, OnDestroy {
       let link = resp.linkPago;
 
       if (link != undefined) {
-        window.open(link, "_blank");
+        window.open(link, "_self");
       }
 
     }).catch();
