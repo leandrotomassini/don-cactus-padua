@@ -1,73 +1,32 @@
 <ion-content>
-  <form (ngSubmit)="login(flogin)" #flogin="ngForm">
-    <ion-grid fixed>
-      <ion-row>
-        <ion-col>
-
-          <ion-list>
-
-            <ion-item>
-              <ion-label>Email</ion-label>
-              <ion-input name="email" type="email" [(ngModel)]="loginUser.email" required></ion-input>
-            </ion-item>
-
-            <ion-item>
-              <ion-label>Password</ion-label>
-              <ion-input name="password" type="password" [(ngModel)]="loginUser.password" required></ion-input>
-            </ion-item>
-
-          </ion-list>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col>
-          <ion-button type="submit" color="tertiary" shape="round">
-            Login
-          </ion-button>
-          <div #googleBtn  class="btnGoogle"></div>
+  <div class="ion-text-center contenedor-card">
+    <ion-card-content>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12">
+            <img src="https://i.imgur.com/w3AMTh4.jpg" class="logo-sol">
           </ion-col>
-      </ion-row>
-
-
-    </ion-grid>
-  </form>
-
-  <form (ngSubmit)="registro(fRegistro)" #fRegistro="ngForm">
-    <ion-row>
-      <ion-col>
-
-        <ion-list>
-
-          <ion-item>
-            <ion-label>Email</ion-label>
-            <ion-input name="correo" type="email" [(ngModel)]="registerUser.correo" required></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Nombre</ion-label>
-            <ion-input name="nombre" type="text" [(ngModel)]="registerUser.nombre" required></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Password</ion-label>
-            <ion-input name="password" type="password" [(ngModel)]="registerUser.password" required></ion-input>
-          </ion-item>
-
-        </ion-list>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="tertiary" shape="round">
-          Crear usuario
-        </ion-button>
-      </ion-col>
-    </ion-row>
-
-  </form>
-  
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <h1 class="logo-don-cactus">DON CACTUS PADUA</h1>
+          </ion-col>
+          <ion-col size="12">
+            <h1 class="logo-don-cactus">Iniciar sesión con Google</h1>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <div class="contenedor-google">
+              <div #googleBtn></div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </div>
+          
+       
 
 
 

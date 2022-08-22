@@ -1,1 +1,58 @@
+.logo-sol {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    box-shadow: 5px 10px 205px 127px rgba(221, 207, 110, 0.75);
+    -webkit-box-shadow: 5px 10px 205px 127px rgba(221, 207, 110, 0.75);
+    -moz-box-shadow: 5px 10px 205px 127px rgba(221, 207, 110, 0.75);
+    
+}
 
+ion-card {
+    margin-top: 200px;
+}
+
+ion-content {
+    --background: url('https://i.imgur.com/BmCVoDx.jpg') 0 0/100% 100% no-repeat;
+}
+
+.contenedor-card {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.contenedor-google {
+    width: 225px;
+    margin: 0 auto;
+}
+
+.logo-don-cactus {
+    color: black;
+    font-weight: bold;
+    text-shadow: 4px 4px 2px rgba(84,228,37,0.6);
+}
+
+@media only screen and (max-width: 600px) {
+    .contenedor-card {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 5%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .contenedor-card {
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 5%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .contenedor-card {
+        width: 40%;
+        margin: 0 auto;
+        margin-top: 5%;
+    }
+}
